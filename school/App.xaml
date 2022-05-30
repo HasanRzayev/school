@@ -1,0 +1,31 @@
+﻿<Application x:Class="school.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:school"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="esascolor">#FFA500</SolidColorBrush>
+                    <SolidColorBrush x:Key="esascolorcopy">#FFA500</SolidColorBrush>
+                    <SolidColorBrush x:Key="ikincireng">#FFCA03</SolidColorBrush>
+                    <SolidColorBrush x:Key="ikincirengcopy">#FFCA03</SolidColorBrush>
+
+                    <SolidColorBrush x:Key="writecolor">#000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="writecolorcopy">#000000</SolidColorBrush>
+
+                    <SolidColorBrush x:Key="darkmode_1">#000000</SolidColorBrush>
+                    <SolidColorBrush x:Key="darkmode_2">#1F1B24</SolidColorBrush>
+                    <SolidColorBrush x:Key="writecolordark">#FFFFFF</SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

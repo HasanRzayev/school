@@ -1,0 +1,165 @@
+﻿<Page x:Class="SCHOOL_BUS.Pages.Carpage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SCHOOL_BUS.Pages"
+      mc:Ignorable="d" 
+               xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{ DynamicResource ikincireng}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Carpage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition Width="10*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" CornerRadius="10"  BorderThickness="15"   >
+                <Grid
+ >
+                    <Button  Command="{Binding Add}"  Background="{DynamicResource esascolor}"
+    Style="{StaticResource MaterialDesignRaisedButton}"
+    Width="60" Height="60"
+    materialDesign:ButtonAssist.CornerRadius="10"
+    ToolTip="MaterialDesignRaisedButton with Round Corners"
+                            
+   >
+                        <materialDesign:PackIcon Kind="Plus" />
+                    </Button>
+                </Grid>
+            </Border>
+            <Border Grid.Column="1" CornerRadius="10"  BorderThickness="15"   >
+                <TextBox
+  materialDesign:HintAssist.Hint="Search"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+  VerticalAlignment="Center" />
+            </Border>
+            
+        </Grid>
+        <StackPanel Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
+            <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_car}"  ItemsSource="{Binding cars,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="800">
+                <ListView.View >
+                    <GridView >
+                        <GridViewColumn Width="140" Header="Title" 
+              DisplayMemberBinding="{Binding Title}"  />
+                        <GridViewColumn Width="140" Header="Number"  
+              DisplayMemberBinding="{Binding Number}" />
+                        <GridViewColumn Width="140" Header="SeatCount" 
+              DisplayMemberBinding="{Binding SeatCount}" />
+                        
+                        <GridViewColumn Width="130" Header="Delete Action">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
+              
+                       Margin="0"
+                       VerticalAlignment="Center"
+                                        
+                        >
+                                        <materialDesign:PackIcon Kind="Delete" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="150" Header=" Update Action" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="{DynamicResource esascolor}"   Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
+              
+                       Margin="0"
+                       VerticalAlignment="Center"
+                                        
+                        >
+                                        <materialDesign:PackIcon Kind="Update" />
+                                    </Button>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button HorizontalAlignment="Right" Margin="5,5,5,5"  Background="{DynamicResource esascolor}"
+        Content="Add Row"  />
+        </StackPanel>
+
+        <Popup Margin="10,10,0,13" Name="Popup1" Placement="Center" Width="300" Height="400"  IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}">
+            <StackPanel Background="{DynamicResource ikincireng}">
+                <Border CornerRadius="10"  BorderThickness="15" >
+                    <Button Width="60" Height="30" HorizontalAlignment="Right" Command="{Binding Exit}"  Background="{DynamicResource esascolor}" >
+                        <materialDesign:PackIcon Kind="CloseCircle" />
+                    </Button>
+                </Border>
+                <Border CornerRadius="10"  BorderThickness="15" >
+                    <TextBlock
+  Style="{StaticResource MaterialDesignHeadline3TextBlock}"
+  Text="New Car" />
+                </Border>
+                <Border CornerRadius="10"  BorderThickness="15" >
+                    <TextBox
+  x:Name="NameTextBox"
+  materialDesign:HintAssist.Hint="Name"
+  materialDesign:HintAssist.HelperText="Helper text longer than error">
+                        <TextBox.Text>
+                            <Binding
+      Path="Name"
+      UpdateSourceTrigger="PropertyChanged">
+
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Border>
+                <Border CornerRadius="10"  BorderThickness="15" >
+                <TextBox
+  x:Name="mobile_textbox"
+  materialDesign:HintAssist.Hint="Mobile"
+  materialDesign:HintAssist.HelperText="Helper text longer than error">
+                    <TextBox.Text>
+                        <Binding
+      Path="Number"
+      UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                              
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                </Border>
+                <Border CornerRadius="10"  BorderThickness="15" >
+                    
+                    <TextBox
+                        
+  x:Name="seatcount_textbox"
+  materialDesign:HintAssist.Hint="SeatCount"
+  materialDesign:HintAssist.HelperText="Helper text longer than error">
+                        
+                        <TextBox.Text>
+                            
+                            <Binding
+      Path="Seat_count"
+      UpdateSourceTrigger="PropertyChanged">
+                                
+                                   
+                            
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Border>
+                <Border CornerRadius="10"  BorderThickness="15"   >
+                    <Button Content="Create" HorizontalAlignment="Right"  Command="{Binding Create}"  Background="{DynamicResource esascolor}"/>
+                </Border>
+            </StackPanel>
+        </Popup>
+    </Grid>
+</Page>

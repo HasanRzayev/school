@@ -1,0 +1,52 @@
+﻿<Page x:Class="SCHOOL_BUS.Pages.Holidays"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SCHOOL_BUS.Pages"
+      mc:Ignorable="d" 
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{ DynamicResource ikincireng}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="Holidays">
+
+    <Grid>
+        <Grid.Resources>
+            <Style
+      x:Key="SecondaryCalendarDayButton"
+      TargetType="CalendarDayButton"
+      BasedOn="{StaticResource MaterialDesignCalendarDayButton}">
+                <Setter
+        Property="materialDesign:CalendarAssist.SelectionColor"
+        Value="{DynamicResource SecondaryHueMidBrush}" />
+                <Setter
+        Property="materialDesign:CalendarAssist.SelectionForegroundColor"
+        Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+            </Style>
+            <Style
+      x:Key="SecondaryCalendarButton"
+      TargetType="CalendarButton"
+      BasedOn="{StaticResource MaterialDesignCalendarButton}">
+                <Setter
+        Property="materialDesign:CalendarAssist.SelectionColor"
+        Value="{DynamicResource SecondaryHueMidBrush}" />
+                <Setter
+        Property="materialDesign:CalendarAssist.SelectionForegroundColor"
+        Value="{DynamicResource SecondaryHueMidForegroundBrush}" />
+            </Style>
+        </Grid.Resources>
+        <Calendar  
+    Background="{DynamicResource PrimaryHueLightBrush}"
+    Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
+    materialDesign:CalendarAssist.HeaderBackground="{DynamicResource PrimaryHueDarkBrush}"
+    materialDesign:CalendarAssist.HeaderForeground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+    CalendarDayButtonStyle="{StaticResource SecondaryCalendarDayButton}"
+    CalendarButtonStyle="{StaticResource SecondaryCalendarButton}" />
+    </Grid>
+</Page>
