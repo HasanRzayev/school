@@ -1,4 +1,5 @@
-﻿using SCHOOL_BUS.ViewModels;
+﻿using school.Models;
+using SCHOOL_BUS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace school
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        
+        public MainWindow(WindowViewModel view)
         {
             InitializeComponent();
-            DataContext=new WindowViewModel();
+            
+            DataContext=view;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SCHOOL_BUS.Commands;
+﻿using school.Models;
+using SCHOOL_BUS.Commands;
 using SCHOOL_BUS.Pages;
 using SCHOOL_BUS.ViewModels;
 using System;
@@ -39,13 +40,14 @@ namespace SCHOOL_BUS.ViewModels
         }
 
 
-
-        public WindowViewModel(){
+        private SbDbContext context;
+        public WindowViewModel(SbDbContext context)
+        {
             Holidays= new RelayCommand(Holidaykecidd);
             carrelay= new RelayCommand(Carkecid);
             driverrelay= new RelayCommand(Driverkecid);
             toggledark= new RelayCommand(toggle);
-
+            this.context = context;
         }
         private Page Displaypage;
 
