@@ -76,7 +76,7 @@
                         <GridViewColumn Width="150" Header=" Update Action" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="{DynamicResource esascolor}"   Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
+                                    <Button Background="{DynamicResource esascolor}"   Command="{Binding Path=DataContext.Update, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
               
                        Margin="0"
                        VerticalAlignment="Center"
@@ -145,19 +145,16 @@
   materialDesign:HintAssist.HelperText="Helper text longer than error">
                         
                         <TextBox.Text>
-                            
+
                             <Binding
       Path="Seat_count"
       UpdateSourceTrigger="PropertyChanged">
-                                
-                                   
-                            
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
                 </Border>
                 <Border CornerRadius="10"  BorderThickness="15"   >
-                    <Button Content="Create" HorizontalAlignment="Right"  Command="{Binding Create}"  Background="{DynamicResource esascolor}"/>
+                    <Button Content="{Binding ButtonText}" HorizontalAlignment="Right"  Command="{Binding Create}"  Background="{DynamicResource esascolor}"/>
                 </Border>
             </StackPanel>
         </Popup>
