@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using BespokeFusion;
 
 namespace SCHOOL_BUS.ViewModels
 {
@@ -118,15 +119,36 @@ namespace SCHOOL_BUS.ViewModels
             drivers=new ObservableCollection<Driver>();
             cars =new ObservableCollection<string>(); 
             (DATABAZA.GetBaza()).SaveChanges();
-            foreach (var item in (DATABAZA.GetBaza()).Drivers.ToList())
+            try
             {
-                drivers.Add(item);
+                foreach (var item in (DATABAZA.GetBaza()).Drivers.ToList())
+                {
+                    drivers.Add(item);
+                }
+                foreach (var items in (DATABAZA.GetBaza()).Cars.ToList())
+                {
+                    cars?.Add(items.Title.ToString());
+                }
+                foreach (var item in (DATABAZA.GetBaza()).Drivers.ToList())
+                {
+                    if (cars.Contains(item.Car.Title)==true) cars.Remove(item.Car.Title);
+                }
             }
-            foreach (var items in (DATABAZA.GetBaza()).Cars.ToList())
+            catch (Exception)
             {
-                cars?.Add(items.Title.ToString());
+
+                
             }
+           
         }
+        private string buttontext;
+
+        public string ButtonText
+        {
+            get { return buttontext; }
+            set { buttontext = value; OnPropertyChanged(); }
+        }
+
         public void add(object p)
         {
             Popupisopen=true;
@@ -139,59 +161,116 @@ namespace SCHOOL_BUS.ViewModels
         }
         private void remove(object obj)
         {
-
             selected_driver = obj as Driver;
             DATABAZA.GetBaza().Drivers.Remove(selected_driver);
             drivers.Clear();
+            cars.Add(selected_driver.Car.Title);
+
             (DATABAZA.GetBaza()).SaveChanges();
             foreach (var item in (DATABAZA.GetBaza()).Drivers.ToList())
             {
                 drivers.Add(item);
             }
-
+            
         }
         public void create(object p)
         {
-
-            var carcopy = (DATABAZA.GetBaza()).Cars.FirstOrDefault(n=>n.Title==Selected_car);
-            if (carcopy!=null)
+            var carcopy = (DATABAZA.GetBaza()).Cars.FirstOrDefault(n => n.Title==Selected_car);
+            if (ButtonText=="Create")
             {
 
-
                 
-
-                
-                var driver = new Driver
+                if (FirstName==null) MaterialMessageBox.ShowError(@"Enter FirstName !!!!!!");
+                else if (LastName==null) MaterialMessageBox.ShowError(@"Enter LastName !!!!!!");
+                else if (UserName==null) MaterialMessageBox.ShowError(@"Enter UserName !!!!!!");
+                else if (Phone==null) MaterialMessageBox.ShowError(@"Enter Phone !!!!!!");
+                else if (Passwordd==null) MaterialMessageBox.ShowError(@"Enter Password !!!!!!");
+                else if (Selected_car==null) MaterialMessageBox.ShowError(@"Enter car !!!!!!");
+                else if (License==null) MaterialMessageBox.ShowError(@"Enter License !!!!!!");
+                else if  (carcopy!=null)
                 {
-                    FirstName = this.FirstName,
-                    LastName = this.LastName,
-                    UserName = this.UserName,
-                    Phone= this.Phone,
-                    Password=this.Passwordd,
-                    License= this.License,
-                    
-                };
-                
-                (DATABAZA.GetBaza()).SaveChanges();
+
+                    var driver = new Driver
+                    {
+                        FirstName = this.FirstName,
+                        LastName = this.LastName,
+                        UserName = this.UserName,
+                        Phone= this.Phone,
+                        Password=this.Passwordd,
+                        License= this.License,
+
+                    };
+
+                    (DATABAZA.GetBaza()).SaveChanges();
 
 
-                (DATABAZA.GetBaza()).Add(driver);
-                (DATABAZA.GetBaza()).SaveChanges();
+                    (DATABAZA.GetBaza()).Add(driver);
+                    (DATABAZA.GetBaza()).SaveChanges();
 
-                driver.Car=carcopy;
+                    driver.Car=carcopy;
 
-                (DATABAZA.GetBaza()).Update (DATABAZA.GetBaza().Drivers.FirstOrDefault(d => d.FirstName == this.FirstName));
-                (DATABAZA.GetBaza()).SaveChanges();
-               
-                foreach (var item in (DATABAZA.GetBaza()).Drivers)
-                {
-                    drivers.Add(item);
+                    (DATABAZA.GetBaza()).Update(DATABAZA.GetBaza().Drivers.FirstOrDefault(d => d.FirstName == this.FirstName));
+                    (DATABAZA.GetBaza()).SaveChanges();
+
+                    cars.Remove(carcopy.Title);
+                    drivers.Clear();
+
+                    foreach (var item in (DATABAZA.GetBaza()).Drivers)
+                    {
+                        drivers.Add(item);
+                    }
+
+                         FirstName =null;
+                        LastName =  null;
+                        UserName =  null;
+                        Phone=      null;
+                        Passwordd=   null;
+                    License=    null;
+                    selected_car=null;
+
                 }
-                
             }
-            
 
+            else if (ButtonText=="Update")
+            {
+                int numericValue;
+                if (FirstName==null) MaterialMessageBox.ShowError(@"Enter FirstName !!!!!!");
+                else if (LastName==null) MaterialMessageBox.ShowError(@"Enter LastName !!!!!!");
+                else if (UserName==null) MaterialMessageBox.ShowError(@"Enter UserName !!!!!!");
+                else if (Phone==null) MaterialMessageBox.ShowError(@"Enter Phone !!!!!!");
+                else if (Passwordd==null) MaterialMessageBox.ShowError(@"Enter Password !!!!!!");
+                else if (Selected_car==null) MaterialMessageBox.ShowError(@"Enter car !!!!!!");
+                else if (License==null) MaterialMessageBox.ShowError(@"Enter License !!!!!!");
+                else
+                {
+                    Driver LAZIMLIdriver = (DATABAZA.GetBaza()).Drivers.FirstOrDefault(car => car == Selected_driver);
+                    cars.Remove(carcopy.Title);
+                    FirstName = this.FirstName;
+                    LastName = this.LastName;
+                    UserName = this.UserName;
+                    Phone= this.Phone;
+                    Passwordd=this.Passwordd;
+                    License= this.License;
+                    LAZIMLIdriver.Car=carcopy;
+                    
+                    drivers.Clear();
+                    (DATABAZA.GetBaza()).Drivers.Update(LAZIMLIdriver);
+                    (DATABAZA.GetBaza()).SaveChanges();
+                    foreach (var item in (DATABAZA.GetBaza()).Drivers.ToList())
+                    {
+                        drivers.Add(item);
+                    }
+                    cars.Add(carcopy.Title);
 
+                    FirstName =null;
+                    LastName =  null;
+                    UserName =  null;
+                    Phone=      null;
+                    Passwordd=   null;
+                    License=    null;
+                    selected_car=null;
+                }
+            }
         }
     }
 }

@@ -113,12 +113,22 @@ namespace SCHOOL_BUS.ViewModels
             Remove = new RelayCommand(remove);
             Update = new RelayCommand(update);
             cars=new ObservableCollection<Car>();
-            
-            (DATABAZA.GetBaza()).SaveChanges();
-            foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
+            try
             {
-               cars.Add(item);
-            } 
+
+                (DATABAZA.GetBaza()).SaveChanges();
+                foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
+                {
+                    cars.Add(item);
+                }
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
+            
         }
 
         

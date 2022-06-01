@@ -123,7 +123,7 @@
                 <Border CornerRadius="10"  BorderThickness="15" >
                 <TextBox
   x:Name="mobile_textbox"
-  materialDesign:HintAssist.Hint="Mobile"
+  materialDesign:HintAssist.Hint="Number"
   materialDesign:HintAssist.HelperText="Helper text longer than error">
                     <TextBox.Text>
                         <Binding
