@@ -1,4 +1,6 @@
 ﻿using school.Models;
+using school.Pages;
+using school.ViewModels;
 using SCHOOL_BUS.Commands;
 using SCHOOL_BUS.Pages;
 using SCHOOL_BUS.ViewModels;
@@ -27,9 +29,12 @@ namespace SCHOOL_BUS.ViewModels
         public HolidaysViewModel holidays { get; set; }
         public CarViewModel carviewmoedel { get; set; }
         public DriverViewModel driverviewmoedel { get; set; }
+
+        public ParentViewModel parentviewmodel  { get; set; }
         public RelayCommand Holidays { get; set; }
         public RelayCommand carrelay { get; set; }
         public RelayCommand driverrelay { get; set; }
+        public RelayCommand parentrelay { get; set; }
         public RelayCommand toggledark { get; set; }
         private bool togglechange;
 
@@ -41,11 +46,12 @@ namespace SCHOOL_BUS.ViewModels
 
 
         private SbDbContext context;
-        public WindowViewModel(SbDbContext context)
+        public WindowViewModel()
         {
             Holidays= new RelayCommand(Holidaykecidd);
             carrelay= new RelayCommand(Carkecid);
             driverrelay= new RelayCommand(Driverkecid);
+            parentrelay= new RelayCommand(Parentkecid);
             toggledark= new RelayCommand(toggle);
             this.context = context;
         }
@@ -105,6 +111,16 @@ namespace SCHOOL_BUS.ViewModels
             driverviewmoedel= new DriverViewModel();
             DriverPage lazim = new DriverPage();
             lazim.DataContext = driverviewmoedel;
+            DisplayPage = lazim;
+
+        }
+
+        public void Parentkecid(object p)
+        {
+
+            parentviewmodel= new ParentViewModel();
+            ParentPage lazim = new ParentPage();
+            lazim.DataContext = parentviewmodel;
             DisplayPage = lazim;
 
         }

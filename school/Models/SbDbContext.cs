@@ -26,7 +26,12 @@ namespace school.Models
         public virtual DbSet<RideStudent> RideStudents { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
 
-       
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+
+            optionsBuilder.UseSqlServer("Data Source=WIN-EA8010O87DM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

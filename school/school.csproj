@@ -22,8 +22,6 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Pages\" />
   </ItemGroup>
 
 </Project>

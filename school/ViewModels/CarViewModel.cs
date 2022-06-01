@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using BespokeFusion;
 using System.Windows.Media;
 using System.Windows;
+using System.Windows.Data;
 
 namespace SCHOOL_BUS.ViewModels
 {
@@ -34,8 +35,27 @@ namespace SCHOOL_BUS.ViewModels
                 OnPropertyChanged();
             }
         }
+       
+        private bool userFilter(object item)
+        {
+            if (String.IsNullOrEmpty(SearchText))
+                return true;
+            else
+                return ((item as Car).Title.IndexOf(SearchText, StringComparison.OrdinalIgnoreCase) >= 0);
 
+        }
+        private string serachtext;
 
+        public string SearchText
+        {
+            get { return serachtext; }
+            set
+            {
+                serachtext = value; OnPropertyChanged();
+                CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(cars);
+                view.Filter = userFilter;
+            }
+        }
 
         public RelayCommand Add { get; set; }
         public RelayCommand Exit { get; set; }
@@ -142,10 +162,11 @@ namespace SCHOOL_BUS.ViewModels
         {
             if (ButtonText=="Create")
             {
+                int numericValue;
                 if (Name==null) MaterialMessageBox.ShowError(@"Enter Name !!!!!!");
                 else if (Number==null) MaterialMessageBox.ShowError(@"Enter Number !!!!!!");
                 else if (Seat_count==null) MaterialMessageBox.ShowError(@"Seat_count !!!!!!");
-
+                else if (int.TryParse(Seat_count, out numericValue)==false) MaterialMessageBox.ShowError(@"Enter the seat_count number!!!!!!!!!!!!");
                 else
                 {
                     (DATABAZA.GetBaza()).Cars.Add(new Car
@@ -170,23 +191,21 @@ namespace SCHOOL_BUS.ViewModels
             }
             else if(ButtonText=="Update")
             {
+                int numericValue;
                 if (Name==null) MaterialMessageBox.ShowError(@"Enter Name !!!!!!");
                 else if (Number==null) MaterialMessageBox.ShowError(@"Enter Number !!!!!!");
                 else if (Seat_count==null) MaterialMessageBox.ShowError(@"Seat_count !!!!!!");
-
+                else if (int.TryParse(Seat_count, out numericValue)==false) MaterialMessageBox.ShowError(@"Enter the seat_count number");
                 else
                 {
                     Car LAZIMLICAR = (DATABAZA.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
-                    LAZIMLICAR=new Car
-                    {
-                        Title = Name,
-                        Number = Number,
-                        SeatCount = int.Parse(Seat_count)
-                    };
-                    
+                   
+                    LAZIMLICAR.Title=Name;
+                    LAZIMLICAR.Number=Number;
+                    LAZIMLICAR.SeatCount=int.Parse(Seat_count);
 
                     cars.Clear();
-                    (DATABAZA.GetBaza()).Update(LAZIMLICAR);
+                    (DATABAZA.GetBaza()).Cars.Update(LAZIMLICAR);
                     (DATABAZA.GetBaza()).SaveChanges();
                     foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
                     {

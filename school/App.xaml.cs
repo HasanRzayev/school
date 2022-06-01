@@ -17,22 +17,24 @@ namespace school
     /// </summary>
     public partial class App : Application
     {
-        private ServiceProvider serviceProvider;
-        public App()
-        {
-            ServiceCollection services = new ServiceCollection();
-            services.AddDbContext<SbDbContext>(o => o.UseSqlServer("Source=WIN-EA8010O87DM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
-            services.AddSingleton<WindowViewModel>();
-           
-            serviceProvider = services.BuildServiceProvider();
-        }
+        //public static ServiceProvider serviceProvider { get; private set; }
+      
+        //public App()
+        //{
+        //    ServiceCollection services = new ServiceCollection();
+        //    services.AddDbContext<SbDbContext>(o => o.UseSqlServer(" Source=WIN-EA8010O87DM;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+        //    services.AddSingleton<WindowViewModel>();
+        //    services.AddTransient<MainWindow>();
 
-        protected override void OnStartup(StartupEventArgs e)
-        {
+        //    serviceProvider = services.BuildServiceProvider();
+        //}
+
+        //protected override void OnStartup(StartupEventArgs e)
+        //{
             
-            var view = serviceProvider.GetService<MainWindow>();
-            view?.Show();
-        }
+        //    var view = serviceProvider.GetService<MainWindow>();
+        //    view?.Show();
+        //}
 
     }
 }

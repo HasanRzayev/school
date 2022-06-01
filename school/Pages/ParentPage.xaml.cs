@@ -1,6 +1,4 @@
-﻿using school.Models;
-using SCHOOL_BUS.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,19 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace school
+namespace school.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ParentPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ParentPage : Page
     {
-        
-        public MainWindow()
+        public ParentPage()
         {
             InitializeComponent();
-            DataContext=new WindowViewModel();
-            
         }
     }
 }

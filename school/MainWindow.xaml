@@ -12,7 +12,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{ DynamicResource ikincireng}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        
+      
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1000">
     <StackPanel Orientation="Horizontal">
@@ -21,7 +21,7 @@
     ExpandDirection="Left">
             <Expander.Header>
                 <TextBlock
-        Text="Expander Example 3a"
+        Text="MENU"
         RenderTransformOrigin=".5,.5">
                     <TextBlock.LayoutTransform>
                         <RotateTransform
@@ -103,7 +103,7 @@
                 <Border CornerRadius="10"  BorderThickness="15"   >
                     <Grid
  >
-                        <Button  Background="{DynamicResource esascolor}"
+                        <Button  Background="{DynamicResource esascolor}" Command="{Binding parentrelay}"
     Style="{StaticResource MaterialDesignRaisedButton}"
 
     materialDesign:ButtonAssist.CornerRadius="10"
