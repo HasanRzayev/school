@@ -29,7 +29,7 @@ namespace school.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 
-            optionsBuilder.UseSqlServer("Data Source=STHQ0125-06;User ID=admin;Password=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer("Data Source=STHQ0125-06;Initial Catalog=SbDb;User ID=admin;Password=admin;");
         }
 
 

@@ -35,7 +35,7 @@ namespace SCHOOL_BUS.ViewModels
                 OnPropertyChanged();
             }
         }
-       
+
         private bool userFilter(object item)
         {
             if (String.IsNullOrEmpty(SearchText))
@@ -65,16 +65,16 @@ namespace SCHOOL_BUS.ViewModels
 
         private string name;
 
-        public  string Name
+        public string Name
         {
             get { return name; }
             set { name = value; OnPropertyChanged(); }
         }
 
 
-        private  string number;
+        private string number;
 
-        public  string  Number
+        public string Number
         {
             get { return number; }
             set { number = value; OnPropertyChanged(); }
@@ -92,7 +92,7 @@ namespace SCHOOL_BUS.ViewModels
         public Car Selected_car
         {
             get { return selected_car; }
-            set { selected_car = value;OnPropertyChanged(); }
+            set { selected_car = value; OnPropertyChanged(); }
         }
         private string buttontext;
 
@@ -106,17 +106,15 @@ namespace SCHOOL_BUS.ViewModels
         public ObservableCollection<Car> cars { get; set; }
         public CarViewModel()
         {
-            
-            Add=new RelayCommand(add);
-            Exit=new RelayCommand(exit);
-            Create=new RelayCommand(create);
+
+            Add = new RelayCommand(add);
+            Exit = new RelayCommand(exit);
+            Create = new RelayCommand(create);
             Remove = new RelayCommand(remove);
             Update = new RelayCommand(update);
-            cars=new ObservableCollection<Car>();
+            cars = new ObservableCollection<Car>();
             try
             {
-
-                (DATABAZA.GetBaza()).SaveChanges();
                 foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
                 {
                     cars.Add(item);
@@ -125,17 +123,17 @@ namespace SCHOOL_BUS.ViewModels
             catch (Exception)
             {
 
-                
+
             }
-            
-            
+
+
         }
 
-        
+
         public void add(object p)
         {
-            ButtonText="Create";
-            Popupisopen=true;
+            ButtonText = "Create";
+            Popupisopen = true;
 
         }
         public void exit(object p)
@@ -156,13 +154,13 @@ namespace SCHOOL_BUS.ViewModels
         }
         private void update(object obj)
         {
-            ButtonText="Update";
+            ButtonText = "Update";
             selected_car = obj as Car;
-            Popupisopen=true;
-            Car LAZIMLICAR=(DATABAZA.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
-            Name=LAZIMLICAR.Title.ToString();
-            Number=LAZIMLICAR.Number.ToString();
-            Seat_count=LAZIMLICAR.SeatCount.ToString();
+            Popupisopen = true;
+            Car LAZIMLICAR = (DATABAZA.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
+            Name = LAZIMLICAR.Title.ToString();
+            Number = LAZIMLICAR.Number.ToString();
+            Seat_count = LAZIMLICAR.SeatCount.ToString();
 
         }
 
@@ -188,18 +186,18 @@ namespace SCHOOL_BUS.ViewModels
 
                     cars.Clear();
 
-                    (DATABAZA.GetBaza()).SaveChanges();
+                    DATABAZA.GetBaza().SaveChanges();
                     foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
                     {
                         cars.Add(item);
                     }
 
-                    Name=null;
-                    Number=null;
-                    Seat_count=null;
+                    Name = null;
+                    Number = null;
+                    Seat_count = null;
                 }
             }
-            else if(ButtonText=="Update")
+            else if (ButtonText=="Update")
             {
                 int numericValue;
                 if (Name==null) MaterialMessageBox.ShowError(@"Enter Name !!!!!!");
@@ -209,7 +207,7 @@ namespace SCHOOL_BUS.ViewModels
                 else
                 {
                     Car LAZIMLICAR = (DATABAZA.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
-                   
+
                     LAZIMLICAR.Title=Name;
                     LAZIMLICAR.Number=Number;
                     LAZIMLICAR.SeatCount=int.Parse(Seat_count);
@@ -228,7 +226,7 @@ namespace SCHOOL_BUS.ViewModels
                     Popupisopen=false;
                 }
             }
-           
+
 
         }
     }

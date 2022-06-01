@@ -151,6 +151,7 @@ namespace SCHOOL_BUS.ViewModels
 
         public void add(object p)
         {
+            ButtonText="Create";
             Popupisopen=true;
 
         }

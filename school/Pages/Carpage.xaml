@@ -49,7 +49,7 @@
             
         </Grid>
         <StackPanel Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-            <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_car}"  ItemsSource="{Binding cars,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="800">
+            <ListView HorizontalContentAlignment="Center" Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_car}"  ItemsSource="{Binding cars,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="800">
                 <ListView.View >
                     <GridView >
                         <GridViewColumn Width="140" Header="Title" 

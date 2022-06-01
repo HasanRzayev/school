@@ -1,11 +1,11 @@
-﻿<Page x:Class="SCHOOL_BUS.Pages.DriverPage"
+﻿<Page x:Class="school.Pages.ClassPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SCHOOL_BUS.Pages"
+      xmlns:local="clr-namespace:school.Pages"
       mc:Ignorable="d" 
-            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
      TextElement.FontSize="13"
@@ -49,26 +49,17 @@
 
         </Grid>
         <StackPanel Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-            <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_driver}"  ItemsSource="{Binding drivers,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="800">
+            <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_class}"  ItemsSource="{Binding classs,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="800">
                 <ListView.View >
                     <GridView >
-                        <GridViewColumn Width="130" Header="FirstName" 
-              DisplayMemberBinding="{Binding FirstName}"  />
-                        <GridViewColumn Width="130" Header="LastName"  
-              DisplayMemberBinding="{Binding LastName}" />
-                        <GridViewColumn Width="130" Header="UserName" 
-              DisplayMemberBinding="{Binding UserName}" />
-                        <GridViewColumn Width="110" Header="Phone" 
-              DisplayMemberBinding="{Binding Phone}" />
-                        <GridViewColumn Width="90" Header="Car" 
-              DisplayMemberBinding="{Binding Car}" />
-                        <GridViewColumn Width="130" Header="License" 
-              DisplayMemberBinding="{Binding License}" />
+                        <GridViewColumn Width="530" Header="ClassName" 
+              DisplayMemberBinding="{Binding Title}"  />
+                       
                         <GridViewColumn Width="150" Header=" Delete Action">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
-              
+                                                 
                        Margin="0"
                        VerticalAlignment="Center"
                                         
@@ -100,7 +91,7 @@
         Content="Add Row"  />
         </StackPanel>
 
-        <Popup Margin="10,10,0,13" Name="Popup1" Placement="Center" Width="300" Height="650"  IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}">
+        <Popup Margin="10,10,0,13" Name="Popup1" Placement="Center" Width="300" Height="350"  IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}">
             <StackPanel Background="{DynamicResource ikincireng}">
                 <Border CornerRadius="10"  BorderThickness="15" >
                     <Button Width="60" Height="30" HorizontalAlignment="Right" Command="{Binding Exit}"  Background="{DynamicResource esascolor}" >
@@ -110,7 +101,7 @@
                 <Border CornerRadius="10"  BorderThickness="15" >
                     <TextBlock
   Style="{StaticResource MaterialDesignHeadline3TextBlock}"
-  Text="New Driver" />
+  Text="New Class" />
                 </Border>
                 <Border CornerRadius="10"  BorderThickness="15" >
                     <TextBox
@@ -119,125 +110,14 @@
   materialDesign:HintAssist.HelperText="Helper text longer than error">
                         <TextBox.Text>
                             <Binding
-      Path="FirstName"
+      Path="ClassName"
       UpdateSourceTrigger="PropertyChanged">
 
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
                 </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-                    <TextBox
-  x:Name="LastName_textbox"
-  materialDesign:HintAssist.Hint="LastName"
-  materialDesign:HintAssist.HelperText="Helper text longer than error">
-                        <TextBox.Text>
-                            <Binding
-      Path="LastName"
-      UpdateSourceTrigger="PropertyChanged">
-                                <Binding.ValidationRules>
-
-                                </Binding.ValidationRules>
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
-                </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-
-                    <TextBox
-                        
-  x:Name="Phone_textbox"
-  materialDesign:HintAssist.Hint="Phone"
-  materialDesign:HintAssist.HelperText="Helper text longer than error">
-
-                        <TextBox.Text>
-
-                            <Binding
-      Path="Phone"
-      UpdateSourceTrigger="PropertyChanged">
-
-
-
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
-                </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-
-                    <TextBox
-                        
-  x:Name="UserName_textbox"
-  materialDesign:HintAssist.Hint="UserName"
-  materialDesign:HintAssist.HelperText="Helper text longer than error">
-
-                        <TextBox.Text>
-
-                            <Binding
-      Path="UserName"
-      UpdateSourceTrigger="PropertyChanged">
-
-
-
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
-                </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-                    <TextBox Text="{Binding Passwordd}"
-  x:Name="PasswordBox"  
-                        materialDesign:HintAssist.Hint="Password"
-  materialDesign:TextFieldAssist.HasClearButton="True"
-  materialDesign:HintAssist.HelperText="At least 8 characters" />
-                </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-                    <ComboBox   SelectedItem="{Binding Selected_car}"   ItemsSource="{Binding cars,UpdateSourceTrigger=PropertyChanged}"
-  materialDesign:HintAssist.Hint="Search"
-  materialDesign:HintAssist.HintOpacity=".26"
-  IsEditable="True">
-      
-                    </ComboBox>
-
-                </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-
-                    <TextBox
-                        
-  x:Name="Home_Adress_textbox"
-  materialDesign:HintAssist.Hint="Home_Adress"
-  materialDesign:HintAssist.HelperText="Helper text longer than error">
-
-                        <TextBox.Text>
-
-                            <Binding
-      Path="HomeAdress"
-      UpdateSourceTrigger="PropertyChanged">
-
-
-
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
-                </Border>
-                <Border CornerRadius="10"  BorderThickness="15" >
-
-                    <TextBox
-                        
-  x:Name="Lisence_textbox"
-  materialDesign:HintAssist.Hint="Lisence"
-  materialDesign:HintAssist.HelperText="Helper text longer than error">
-
-                        <TextBox.Text>
-
-                            <Binding
-      Path="License"
-      UpdateSourceTrigger="PropertyChanged">
-
-
-
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
-                </Border>
+                
                 <Border CornerRadius="10"  BorderThickness="15"  >
                     <Button Content="{Binding  ButtonText,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
                 </Border>

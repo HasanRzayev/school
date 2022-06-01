@@ -31,10 +31,18 @@ namespace SCHOOL_BUS.ViewModels
         public DriverViewModel driverviewmoedel { get; set; }
 
         public ParentViewModel parentviewmodel  { get; set; }
+        public ClassViewModel classviewmodel  { get; set; }
+
+
+
         public RelayCommand Holidays { get; set; }
         public RelayCommand carrelay { get; set; }
         public RelayCommand driverrelay { get; set; }
         public RelayCommand parentrelay { get; set; }
+        public RelayCommand classrelay { get; set; }
+
+
+
         public RelayCommand toggledark { get; set; }
         private bool togglechange;
 
@@ -52,6 +60,7 @@ namespace SCHOOL_BUS.ViewModels
             carrelay= new RelayCommand(Carkecid);
             driverrelay= new RelayCommand(Driverkecid);
             parentrelay= new RelayCommand(Parentkecid);
+            classrelay= new RelayCommand(classkecidd);
             toggledark= new RelayCommand(toggle);
             this.context = context;
         }
@@ -86,7 +95,16 @@ namespace SCHOOL_BUS.ViewModels
             }
         }
 
-    
+
+        public void classkecidd(object p)
+        {
+
+            classviewmodel= new ClassViewModel();
+            ClassPage lazim = new ClassPage();
+            lazim.DataContext = classviewmodel;
+            DisplayPage = lazim;
+
+        }
         public void Holidaykecidd(object p)
         {
            
