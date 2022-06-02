@@ -16,7 +16,10 @@ namespace school.Models
         public string Phone { get; set; } = null!;
         public string UserName { get; set; } = null!;
         public string Password { get; set; } = null!;
-
+        public override string ToString()
+        {
+            return FirstName;
+        }
         public virtual ICollection<Student> Students { get; set; }
     }
 }

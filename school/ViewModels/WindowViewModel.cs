@@ -32,6 +32,8 @@ namespace SCHOOL_BUS.ViewModels
 
         public ParentViewModel parentviewmodel  { get; set; }
         public ClassViewModel classviewmodel  { get; set; }
+        public StudentViewModel studentviewmodel  { get; set; }
+        public CreateRideViewModel createrideviewmodel  { get; set; }
 
 
 
@@ -40,6 +42,8 @@ namespace SCHOOL_BUS.ViewModels
         public RelayCommand driverrelay { get; set; }
         public RelayCommand parentrelay { get; set; }
         public RelayCommand classrelay { get; set; }
+        public RelayCommand studentrelay { get; set; }
+        public RelayCommand createriderelay { get; set; }
 
 
 
@@ -61,6 +65,8 @@ namespace SCHOOL_BUS.ViewModels
             driverrelay= new RelayCommand(Driverkecid);
             parentrelay= new RelayCommand(Parentkecid);
             classrelay= new RelayCommand(classkecidd);
+            studentrelay= new RelayCommand(studentkecidd);
+            createriderelay= new RelayCommand(createridekecidd);
             toggledark= new RelayCommand(toggle);
             this.context = context;
         }
@@ -94,8 +100,24 @@ namespace SCHOOL_BUS.ViewModels
                 Application.Current.Resources["writecolordark"] =  Application.Current.Resources["writecolorcopy"];
             }
         }
+        public void createridekecidd(object p)
+        {
 
+            createrideviewmodel= new CreateRideViewModel();
+            CreateRidePage lazim = new CreateRidePage();
+            lazim.DataContext = createrideviewmodel;
+            DisplayPage = lazim;
 
+        }
+        public void studentkecidd(object p)
+        {
+
+            studentviewmodel= new StudentViewModel();
+            StudentPage lazim = new StudentPage();
+            lazim.DataContext = studentviewmodel;
+            DisplayPage = lazim;
+
+        }
         public void classkecidd(object p)
         {
 

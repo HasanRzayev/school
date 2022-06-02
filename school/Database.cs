@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SCHOOL_BUS
 {
-    public class DATABAZA
+    public class Database
     {
         public static SbDbContext baza=null;
 
 
-        public DATABAZA()
+        public Database()
         { 
             
         }

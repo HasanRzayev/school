@@ -132,8 +132,8 @@ namespace school.ViewModels
             Update = new RelayCommand(update);
             parents=new ObservableCollection<Parent>();
 
-            (DATABAZA.GetBaza()).SaveChanges();
-            foreach (var item in (DATABAZA.GetBaza()).Parents.ToList())
+            (Database.GetBaza()).SaveChanges();
+            foreach (var item in (Database.GetBaza()).Parents.ToList())
             {
                 parents.Add(item);
             }
@@ -154,10 +154,10 @@ namespace school.ViewModels
         {
 
             Selected_parent = obj as Parent;
-            DATABAZA.GetBaza().Parents.Remove(Selected_parent);
+            Database.GetBaza().Parents.Remove(Selected_parent);
             parents.Clear();
-            (DATABAZA.GetBaza()).SaveChanges();
-            foreach (var item in (DATABAZA.GetBaza()).Parents.ToList())
+            (Database.GetBaza()).SaveChanges();
+            foreach (var item in (Database.GetBaza()).Parents.ToList())
             {
                 parents.Add(item);
             }
@@ -167,7 +167,7 @@ namespace school.ViewModels
             ButtonText="Update";
             Selected_parent = obj as Parent;
             Popupisopen=true;
-            Parent lazimliparent = (DATABAZA.GetBaza()).Parents.FirstOrDefault(parent =>parent.Id  == Selected_parent.Id);
+            Parent lazimliparent = (Database.GetBaza()).Parents.FirstOrDefault(parent =>parent.Id  == Selected_parent.Id);
             FirstName=lazimliparent.FirstName.ToString();
             LastName =lazimliparent.LastName.ToString();
             Phone    =lazimliparent.Phone.ToString();
@@ -188,7 +188,7 @@ namespace school.ViewModels
                 else if (Password==null) MaterialMessageBox.ShowError(@"Enter Password !!!!!!");
                 else
                 {
-                    (DATABAZA.GetBaza()).Parents.Add(new Parent
+                    (Database.GetBaza()).Parents.Add(new Parent
                     {
                         FirstName=this.FirstName,
                         LastName =this.LastName ,
@@ -199,8 +199,8 @@ namespace school.ViewModels
 
                     parents.Clear();
 
-                    (DATABAZA.GetBaza()).SaveChanges();
-                    foreach (var item in (DATABAZA.GetBaza()).Parents.ToList())
+                    (Database.GetBaza()).SaveChanges();
+                    foreach (var item in (Database.GetBaza()).Parents.ToList())
                     {
                         parents.Add(item);
                     }
@@ -222,7 +222,7 @@ namespace school.ViewModels
                 else if (Password==null) MaterialMessageBox.ShowError(@"Enter Password !!!!!!");
                 else
                 {
-                    Parent LAZIMLIParent = (DATABAZA.GetBaza()).Parents.FirstOrDefault(Parent => Parent == Selected_parent);
+                    Parent LAZIMLIParent = (Database.GetBaza()).Parents.FirstOrDefault(Parent => Parent == Selected_parent);
 
                     LAZIMLIParent.FirstName=this.FirstName;
                     LAZIMLIParent.LastName=this.LastName;
@@ -231,9 +231,9 @@ namespace school.ViewModels
                     LAZIMLIParent.Password=this.Password;
 
                     parents.Clear();
-                    (DATABAZA.GetBaza()).Parents.Update(LAZIMLIParent);
-                    (DATABAZA.GetBaza()).SaveChanges();
-                    foreach (var item in (DATABAZA.GetBaza()).Parents.ToList())
+                    (Database.GetBaza()).Parents.Update(LAZIMLIParent);
+                    (Database.GetBaza()).SaveChanges();
+                    foreach (var item in (Database.GetBaza()).Parents.ToList())
                     {
                         parents.Add(item);
                     }

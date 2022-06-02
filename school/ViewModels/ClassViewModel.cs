@@ -63,7 +63,7 @@ namespace school.ViewModels
             classs=new ObservableCollection<Group>();
             try
             {
-                foreach (var item in (DATABAZA.GetBaza()).Groups.ToList())
+                foreach (var item in (Database.GetBaza()).Groups.ToList())
                 {
                     classs.Add(item);
                 }
@@ -98,11 +98,11 @@ namespace school.ViewModels
         private void remove(object obj)
         {
             selected_class = obj as Group;
-            DATABAZA.GetBaza().Groups.Remove(Selected_class);
+            Database.GetBaza().Groups.Remove(Selected_class);
             classs.Clear();
 
-            (DATABAZA.GetBaza()).SaveChanges();
-            foreach (var item in (DATABAZA.GetBaza()).Groups.ToList())
+            (Database.GetBaza()).SaveChanges();
+            foreach (var item in (Database.GetBaza()).Groups.ToList())
             {
                 classs.Add(item);
             }
@@ -126,20 +126,20 @@ namespace school.ViewModels
 
                     };
 
-                    (DATABAZA.GetBaza()).SaveChanges();
+                    (Database.GetBaza()).SaveChanges();
 
 
-                    (DATABAZA.GetBaza()).Add(lazimliclass);
-                    (DATABAZA.GetBaza()).SaveChanges();
+                    (Database.GetBaza()).Add(lazimliclass);
+                    (Database.GetBaza()).SaveChanges();
 
          
 
-                    (DATABAZA.GetBaza()).Update(DATABAZA.GetBaza().Groups.FirstOrDefault(d => d.Title == this.ClassName));
-                    (DATABAZA.GetBaza()).SaveChanges();
+                    (Database.GetBaza()).Update(Database.GetBaza().Groups.FirstOrDefault(d => d.Title == this.ClassName));
+                    (Database.GetBaza()).SaveChanges();
 
                     classs.Clear();
 
-                    foreach (var item in (DATABAZA.GetBaza()).Groups.ToList())
+                    foreach (var item in (Database.GetBaza()).Groups.ToList())
                     {
                         classs.Add(item);
                     }
@@ -155,14 +155,14 @@ namespace school.ViewModels
                 if (ClassName==null) MaterialMessageBox.ShowError(@"Enter ClassName !!!!!!");
                 else
                 {
-                    Group LAZIMLIclass = (DATABAZA.GetBaza()).Groups.FirstOrDefault(car => car== Selected_class);
+                    Group LAZIMLIclass = (Database.GetBaza()).Groups.FirstOrDefault(car => car== Selected_class);
                     ClassName = this.ClassName;
                    
 
                     classs.Clear();
-                    (DATABAZA.GetBaza()).Groups.Update(LAZIMLIclass);
-                    (DATABAZA.GetBaza()).SaveChanges();
-                    foreach (var item in (DATABAZA.GetBaza()).Groups.ToList())
+                    (Database.GetBaza()).Groups.Update(LAZIMLIclass);
+                    (Database.GetBaza()).SaveChanges();
+                    foreach (var item in (Database.GetBaza()).Groups.ToList())
                     {
                         classs.Add(item);
                     }

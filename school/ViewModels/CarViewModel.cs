@@ -115,7 +115,7 @@ namespace SCHOOL_BUS.ViewModels
             cars = new ObservableCollection<Car>();
             try
             {
-                foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
+                foreach (var item in (Database.GetBaza()).Cars.ToList())
                 {
                     cars.Add(item);
                 }
@@ -144,10 +144,10 @@ namespace SCHOOL_BUS.ViewModels
         {
 
             selected_car = obj as Car;
-            DATABAZA.GetBaza().Cars.Remove(selected_car);
+            Database.GetBaza().Cars.Remove(selected_car);
             cars.Clear();
-            (DATABAZA.GetBaza()).SaveChanges();
-            foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
+            (Database.GetBaza()).SaveChanges();
+            foreach (var item in (Database.GetBaza()).Cars.ToList())
             {
                 cars.Add(item);
             }
@@ -157,7 +157,7 @@ namespace SCHOOL_BUS.ViewModels
             ButtonText = "Update";
             selected_car = obj as Car;
             Popupisopen = true;
-            Car LAZIMLICAR = (DATABAZA.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
+            Car LAZIMLICAR = (Database.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
             Name = LAZIMLICAR.Title.ToString();
             Number = LAZIMLICAR.Number.ToString();
             Seat_count = LAZIMLICAR.SeatCount.ToString();
@@ -177,7 +177,7 @@ namespace SCHOOL_BUS.ViewModels
                 else if (int.TryParse(Seat_count, out numericValue)==false) MaterialMessageBox.ShowError(@"Enter the seat_count number!!!!!!!!!!!!");
                 else
                 {
-                    (DATABAZA.GetBaza()).Cars.Add(new Car
+                    (Database.GetBaza()).Cars.Add(new Car
                     {
                         Title = Name,
                         Number = Number,
@@ -186,8 +186,8 @@ namespace SCHOOL_BUS.ViewModels
 
                     cars.Clear();
 
-                    DATABAZA.GetBaza().SaveChanges();
-                    foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
+                    Database.GetBaza().SaveChanges();
+                    foreach (var item in (Database.GetBaza()).Cars.ToList())
                     {
                         cars.Add(item);
                     }
@@ -206,16 +206,16 @@ namespace SCHOOL_BUS.ViewModels
                 else if (int.TryParse(Seat_count, out numericValue)==false) MaterialMessageBox.ShowError(@"Enter the seat_count number");
                 else
                 {
-                    Car LAZIMLICAR = (DATABAZA.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
+                    Car LAZIMLICAR = (Database.GetBaza()).Cars.FirstOrDefault(car => car == Selected_car);
 
                     LAZIMLICAR.Title=Name;
                     LAZIMLICAR.Number=Number;
                     LAZIMLICAR.SeatCount=int.Parse(Seat_count);
 
                     cars.Clear();
-                    (DATABAZA.GetBaza()).Cars.Update(LAZIMLICAR);
-                    (DATABAZA.GetBaza()).SaveChanges();
-                    foreach (var item in (DATABAZA.GetBaza()).Cars.ToList())
+                    (Database.GetBaza()).Cars.Update(LAZIMLICAR);
+                    (Database.GetBaza()).SaveChanges();
+                    foreach (var item in (Database.GetBaza()).Cars.ToList())
                     {
                         cars.Add(item);
                     }

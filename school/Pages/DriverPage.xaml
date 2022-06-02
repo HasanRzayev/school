@@ -81,7 +81,7 @@
                         <GridViewColumn Width="150" Header=" Update Action">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
+                                    <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Update, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
               
                        Margin="0"
                        VerticalAlignment="Center"
