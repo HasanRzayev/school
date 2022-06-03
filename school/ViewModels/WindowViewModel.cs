@@ -29,11 +29,12 @@ namespace SCHOOL_BUS.ViewModels
         public HolidaysViewModel holidays { get; set; }
         public CarViewModel carviewmoedel { get; set; }
         public DriverViewModel driverviewmoedel { get; set; }
-
         public ParentViewModel parentviewmodel  { get; set; }
         public ClassViewModel classviewmodel  { get; set; }
         public StudentViewModel studentviewmodel  { get; set; }
         public CreateRideViewModel createrideviewmodel  { get; set; }
+
+
 
         public RelayCommand Holidays { get; set; }
         public RelayCommand carrelay { get; set; }

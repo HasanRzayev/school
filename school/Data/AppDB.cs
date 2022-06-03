@@ -5,6 +5,7 @@ namespace Sb.Data
 {
     public class AppDB : DbContext
     {
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Ride> Rides { get; set; }
         public DbSet<Car> Cars { get; set; }
@@ -14,12 +15,11 @@ namespace Sb.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Data Source=STHQ0125-06;Initial Catalog=SbDb;User ID=admin;Password=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
-
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

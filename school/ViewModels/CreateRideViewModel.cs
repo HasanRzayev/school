@@ -150,7 +150,8 @@ namespace school.ViewModels
 
             try
             {
-                foreach (var item in (Database.GetBaza()).Students.ToList())
+               
+                foreach (var item in (Database.GetBaza()).Students.Where(n=>n.RideId==0).ToList())
                 {
                     allstudents.Add(item);
                 }
