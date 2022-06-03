@@ -1,5 +1,5 @@
 ﻿using SCHOOL_BUS.Commands;
-using school.Models;
+using Sb.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

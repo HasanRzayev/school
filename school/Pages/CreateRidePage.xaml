@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:school.Pages"
       mc:Ignorable="d" 
-       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:dxmvvm="http://schemas.microsoft.com/expression/2010/interactivity"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
@@ -19,12 +19,14 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="4*"></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <TextBlock
+            <Border CornerRadius="10"  BorderThickness="15"  >
+                <TextBlock
   Style="{StaticResource MaterialDesignHeadline4TextBlock}"
   Text="Ride" />
+            </Border>
             <Border CornerRadius="10"  BorderThickness="15"  >
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -94,11 +96,15 @@
                                 </Border>
                             </Border>
             <Border CornerRadius="10"  BorderThickness="15"  >
-                <ComboBox SelectedItem="{Binding Selected_Driver}"   ItemsSource="{Binding driverslist,UpdateSourceTrigger=PropertyChanged}"
+                <ComboBox SelectedItem="{Binding Selected_Driver}"   ItemsSource="{Binding driverslist,UpdateSourceTrigger=PropertyChanged}" 
   materialDesign:HintAssist.Hint="Search"
   materialDesign:HintAssist.HintOpacity=".26"
   IsEditable="True">
-             
+                    <dxmvvm:Interaction.Triggers>
+                        <dxmvvm:EventTrigger EventName="SelectionChanged" >
+                            <dxmvvm:InvokeCommandAction Command="{Binding Path= ComboSelectionChangedCommand}"></dxmvvm:InvokeCommandAction>
+                        </dxmvvm:EventTrigger> 
+                    </dxmvvm:Interaction.Triggers>
                 </ComboBox>
             </Border>
                 <Border CornerRadius="10"  BorderThickness="15"  >

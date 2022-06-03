@@ -1,4 +1,4 @@
-﻿using school.Models;
+﻿using Sb.Models.Entities;
 using school.Pages;
 using school.ViewModels;
 using SCHOOL_BUS.Commands;
@@ -35,8 +35,6 @@ namespace SCHOOL_BUS.ViewModels
         public StudentViewModel studentviewmodel  { get; set; }
         public CreateRideViewModel createrideviewmodel  { get; set; }
 
-
-
         public RelayCommand Holidays { get; set; }
         public RelayCommand carrelay { get; set; }
         public RelayCommand driverrelay { get; set; }
@@ -56,8 +54,6 @@ namespace SCHOOL_BUS.ViewModels
             set { togglechange = value; }
         }
 
-
-        private SbDbContext context;
         public WindowViewModel()
         {
             Holidays= new RelayCommand(Holidaykecidd);
@@ -68,7 +64,7 @@ namespace SCHOOL_BUS.ViewModels
             studentrelay= new RelayCommand(studentkecidd);
             createriderelay= new RelayCommand(createridekecidd);
             toggledark= new RelayCommand(toggle);
-            this.context = context;
+           
         }
         private Page Displaypage;
 

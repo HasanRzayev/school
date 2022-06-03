@@ -1,5 +1,5 @@
 ﻿using SCHOOL_BUS.Commands;
-using school.Models;
+using Sb.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -69,7 +69,9 @@ namespace school.ViewModels
         public string Selected_Driver
         {
             get { return selected_driver; }
-            set { selected_driver = value; OnPropertyChanged(); }
+            set { selected_driver = value; OnPropertyChanged();
+           
+            }
         }
         private Student selected_student;
 
@@ -89,14 +91,29 @@ namespace school.ViewModels
         public RelayCommand Add { get; set; }
         public RelayCommand Exit { get; set; }
         public RelayCommand Create { get; set; }
+        public RelayCommand ComboSelectionChangedCommand { get; set; }
         public RelayCommand Remove { get; set; }
         public RelayCommand Update { get; set; }
         public ObservableCollection<Student> students_drivers { get; set; }
         public ObservableCollection<Student> allstudents { get; set; }
-        private ObservableCollection<string> driverslist { get; set; }
- 
+        public  ObservableCollection<string> driverslist { get; set; }
 
-        
+        public void comboSelectionChangedCommand(object p)
+        {
+
+            var driver = (Database.GetBaza()).Drivers.FirstOrDefault(n => n.FirstName==Selected_Driver);
+            if(driver !=null)
+            {
+                int zero = 0;
+                FullName=driver.FirstName;
+                CarName=driver.Car.Title;
+                CarNumber=driver.Car.Number;
+                Attend=zero.ToString();
+                Max_seat=driver.Car.SeatCount.ToString();
+            }
+
+        }
+
         public void create(object p)
         {
            
@@ -126,6 +143,7 @@ namespace school.ViewModels
         {
            
             Create=new RelayCommand(create);
+            ComboSelectionChangedCommand=new RelayCommand(comboSelectionChangedCommand);
             driverslist=new ObservableCollection<string>();
             students_drivers =new ObservableCollection<Student>();
             allstudents=new ObservableCollection<Student>();

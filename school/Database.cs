@@ -1,4 +1,4 @@
-﻿using school.Models;
+﻿using Sb.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ namespace SCHOOL_BUS
 {
     public class Database
     {
-        public static SbDbContext baza=null;
+        public static AppDB baza =null;
 
 
         public Database()
@@ -17,12 +17,12 @@ namespace SCHOOL_BUS
             
         }
 
-        public static SbDbContext GetBaza()
+        public static AppDB GetBaza()
         {
             
             if (baza == null)
             {
-                baza = new SbDbContext();
+                baza = new AppDB();
              }
             return baza;
         }
