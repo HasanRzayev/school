@@ -132,7 +132,6 @@ namespace school.ViewModels
             Update = new RelayCommand(update);
             parents=new ObservableCollection<Parent>();
 
-            (Database.GetBaza()).SaveChanges();
             foreach (var item in (Database.GetBaza()).Parents.ToList())
             {
                 parents.Add(item);
@@ -152,15 +151,21 @@ namespace school.ViewModels
         }
         private void remove(object obj)
         {
-
             Selected_parent = obj as Parent;
-            Database.GetBaza().Parents.Remove(Selected_parent);
-            parents.Clear();
-            (Database.GetBaza()).SaveChanges();
-            foreach (var item in (Database.GetBaza()).Parents.ToList())
+
+            if ((Database.GetBaza()).Students.First(n => n.ParentId==Selected_parent.Id)!=null) MaterialMessageBox.ShowError(@"
+You can't delete, because he is studying in the same class !!!!!!");
+            else
             {
-                parents.Add(item);
+                Database.GetBaza().Parents.Remove(Selected_parent);
+                parents.Clear();
+                (Database.GetBaza()).SaveChanges();
+                foreach (var item in (Database.GetBaza()).Parents.ToList())
+                {
+                    parents.Add(item);
+                }
             }
+           
         }
         private void update(object obj)
         {

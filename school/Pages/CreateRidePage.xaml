@@ -108,7 +108,7 @@
                 </ComboBox>
             </Border>
                 <Border CornerRadius="10"  BorderThickness="15"  >
-                <Button  Content="Create" Width="200" Height="50" HorizontalAlignment="Left"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
+                <Button  Content="Create" Width="200"  Height="50" HorizontalAlignment="Left"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
             </Border>
 
         </StackPanel>
@@ -120,7 +120,7 @@
                 
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-                <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_driver}"  ItemsSource="{Binding drivers,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300">
+                <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_Student_elave}"  ItemsSource="{Binding students_drivers,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300">
                     <ListView.View >
                         <GridView >
                             <GridViewColumn Width="130" Header="FirstName" 
@@ -153,7 +153,7 @@
         Content="Add Row"  />
             </StackPanel>
             <StackPanel Grid.Row="2" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-                <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_driver}"  ItemsSource="{Binding allstudents,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300">
+                <ListView Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_Student}"  ItemsSource="{Binding allstudents,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="300">
                     <ListView.View >
                         <GridView >
                             <GridViewColumn Width="130" Header="FirstName" 
@@ -167,7 +167,7 @@
                             <GridViewColumn Width="150" Header=" Delete Action">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
+                                        <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Add, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
               
                        Margin="0"
                        VerticalAlignment="Center"

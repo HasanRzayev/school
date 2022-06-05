@@ -120,12 +120,11 @@ namespace SCHOOL_BUS.ViewModels
             Update = new RelayCommand(update);
             drivers=new ObservableCollection<Driver>();
             cars =new ObservableCollection<string>(); 
-            (Database.GetBaza()).SaveChanges();
             try
             {
                 foreach (var item in (Database.GetBaza()).Drivers.ToList())
                 {
-                    drivers.Add(item);
+                    drivers.Add(item); 
                 }
                 foreach (var items in (Database.GetBaza()).Cars.ToList())
                 {
@@ -195,7 +194,7 @@ namespace SCHOOL_BUS.ViewModels
             selected_driver = obj as Driver;
             Database.GetBaza().Drivers.Remove(selected_driver);
             drivers.Clear();
-            cars.Add(selected_driver.Car.Title);
+            //cars.Add(selected_driver.Car.Title);
 
             (Database.GetBaza()).SaveChanges();
             foreach (var item in (Database.GetBaza()).Drivers.ToList())

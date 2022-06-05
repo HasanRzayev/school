@@ -106,43 +106,88 @@ namespace school.ViewModels
             {
                 int zero = 0;
                 FullName=driver.FirstName;
-                CarName=driver.Car.Title;
-                CarNumber=driver.Car.Number;
+                CarName=(Database.GetBaza()).Cars.First(n=>n.DriverId==driver.Id).Title;
+                CarNumber=(Database.GetBaza()).Cars.First(n => n.DriverId==driver.Id).Number;
                 Attend=zero.ToString();
                 Max_seat=driver.Car.SeatCount.ToString();
+                
             }
+
 
         }
+        public void remove(object p)
+        {
+            Selected_Student_elave  = p as Student;
+            students_drivers.Remove(Selected_Student_elave);
+            allstudents.Add(Selected_Student_elave);
 
+            Attend=(int.Parse(Attend)-1).ToString();
+        }
+        public void add(object p)
+        {
+            if(students_drivers.Count+1>students_drivers.Count) MaterialMessageBox.ShowError(@"FULL  !!!!!!");
+            else
+                    {
+                        Selected_Student = p as Student;
+                        students_drivers.Add(Selected_Student);
+                        allstudents.Remove(Selected_Student);
+
+                        Attend=(int.Parse(Attend)+1).ToString();
+                    }
+            
+
+
+        }
         public void create(object p)
         {
-           
-            var driver = (Database.GetBaza()).Drivers.FirstOrDefault(n => n.FirstName==Selected_Driver);
 
-            if (Selected_Driver!=null){
-                var ride = new Ride
-                {
 
-                    Type="go",
-                    DriverId=driver.Id
 
-                };
-                (Database.GetBaza()).Add(ride);
+            var driver = (Database.GetBaza()).Drivers.First(n => n.FirstName==Selected_Driver);
+            var ride = new Ride { Type="go",Driver=driver,DriverId=driver.Id};
+            if (Database.GetBaza().Rides.FirstOrDefault(d => d.DriverId ==driver.Id)!=null)
+            {
+                MaterialMessageBox.ShowError(@"Enter FirstName !!!!!!");
+            }
+            else
+            {
                 (Database.GetBaza()).SaveChanges();
 
-                ride.Driver=driver;
+                (Database.GetBaza()).Add(ride);
 
-                (Database.GetBaza()).Update(ride);
-     
+
+
+
+                ride.Driver= driver;
+                ride.Students=new List<Student>();
+                foreach (var item in students_drivers)
+                {
+                    ride.Students.Add(item);
+                }
+                foreach (var item in ride.Students)
+                {
+                    item.Ride=ride;
+                }
+
+
+            //(Database.GetBaza()).Update(Database.GetBaza().Rides.FirstOrDefault(d => d.DriverId ==driver.Id));
+
+            (Database.GetBaza()).SaveChanges();
             }
-               
-         }
+           
+            Selected_Driver=null;
+            students_drivers.Clear();
+            Attend=null;
+       
+        }
 
         
         public CreateRideViewModel()
         {
            
             Create=new RelayCommand(create);
+            Add=new RelayCommand(add);
+            Remove=new RelayCommand(remove);
             ComboSelectionChangedCommand=new RelayCommand(comboSelectionChangedCommand);
             driverslist=new ObservableCollection<string>();
             students_drivers =new ObservableCollection<Student>();
@@ -151,7 +196,7 @@ namespace school.ViewModels
             try
             {
                
-                foreach (var item in (Database.GetBaza()).Students.Where(n=>n.RideId==0).ToList())
+                foreach (var item in (Database.GetBaza()).Students.Where(n=>n.RideId==null).ToList())
                 {
                     allstudents.Add(item);
                 }

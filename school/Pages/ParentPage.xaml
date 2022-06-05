@@ -53,7 +53,7 @@
                 <ListView.View >
                     <GridView >
                         <GridViewColumn Width="130" Header="Id" 
-              DisplayMemberBinding="{Binding FirstName}"  />
+              DisplayMemberBinding="{Binding Id}"  />
                         <GridViewColumn Width="130" Header="FirstName" 
               DisplayMemberBinding="{Binding FirstName}"  />
                         <GridViewColumn Width="130" Header="LastName"  

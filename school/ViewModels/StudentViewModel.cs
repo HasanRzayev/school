@@ -115,7 +115,6 @@ namespace school.ViewModels
             students=new ObservableCollection<Student>();
             parents =new ObservableCollection<string>();
             classes =new ObservableCollection<string>();
-            (Database.GetBaza()).SaveChanges();
             try
             {
                 foreach (var item in (Database.GetBaza()).Students.ToList())

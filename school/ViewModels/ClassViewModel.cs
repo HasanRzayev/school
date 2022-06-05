@@ -98,6 +98,8 @@ namespace school.ViewModels
         private void remove(object obj)
         {
             selected_class = obj as Group;
+            if ((Database.GetBaza()).Students.First(n => n.GroupId==Selected_class.Id)!=null) MaterialMessageBox.ShowError(@"
+You can't delete, because he is studying in the same class !!!!!!");
             Database.GetBaza().Groups.Remove(Selected_class);
             classs.Clear();
 

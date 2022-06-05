@@ -1,4 +1,5 @@
-﻿using Sb.Models.Entities;
+﻿using Bogus;
+using Sb.Models.Entities;
 using school.Pages;
 using school.ViewModels;
 using SCHOOL_BUS.Commands;
@@ -33,6 +34,7 @@ namespace SCHOOL_BUS.ViewModels
         public ClassViewModel classviewmodel  { get; set; }
         public StudentViewModel studentviewmodel  { get; set; }
         public CreateRideViewModel createrideviewmodel  { get; set; }
+        public RidesViewModel rideviewmodel  { get; set; }
 
 
 
@@ -43,6 +45,7 @@ namespace SCHOOL_BUS.ViewModels
         public RelayCommand classrelay { get; set; }
         public RelayCommand studentrelay { get; set; }
         public RelayCommand createriderelay { get; set; }
+        public RelayCommand riderelay { get; set; }
 
 
 
@@ -64,8 +67,52 @@ namespace SCHOOL_BUS.ViewModels
             classrelay= new RelayCommand(classkecidd);
             studentrelay= new RelayCommand(studentkecidd);
             createriderelay= new RelayCommand(createridekecidd);
+            riderelay= new RelayCommand(ridekecidd);
             toggledark= new RelayCommand(toggle);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //var Carmercedes = new Car { Title="Mercedes", Number="10-DA-123", SeatCount=4 };
+            //var CarHyunday = new Car { Title="Hyunday", Number="10-KK-123", SeatCount=4 };
+            //var CarBmw = new Car { Title="BMW", Number="10-QE-123", SeatCount=4 };
+            //var CarAUDI = new Car { Title="AUDI", Number="10-RT-123", SeatCount=4 };
+            //(Database.GetBaza()).Cars.Add(Carmercedes);
+            //(Database.GetBaza()).Cars.Add(CarHyunday);
+            //(Database.GetBaza()).Cars.Add(CarBmw);
+            //(Database.GetBaza()).Cars.Add(CarAUDI);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //var faker = new Faker("az");
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    (Database.GetBaza()).Parents.Add(new Parent { FirstName=faker.Name.FirstName(),
+            //    LastName=faker.Name.LastName(),Phone=faker.Phone.PhoneNumber(),UserName=faker.Name.FullName(),Password="1234",});
+            //}
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
+            //int norma = 100;
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    (Database.GetBaza()).Groups.Add(new Group
+            //    {
+            //        Title=$"class{norma}",
+
+            //    });
+            //    norma++;
+            //}
            
+            
+
+            (Database.GetBaza()).SaveChanges(); 
+
+
+
+
+
+
+
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         }
         private Page Displaypage;
 
@@ -97,6 +144,16 @@ namespace SCHOOL_BUS.ViewModels
                 Application.Current.Resources["writecolordark"] =  Application.Current.Resources["writecolorcopy"];
             }
         }
+        public void  ridekecidd(object p)
+        {
+
+            rideviewmodel= new RidesViewModel();
+            RidesPage lazim = new RidesPage();
+            lazim.DataContext = rideviewmodel;
+            DisplayPage = lazim;
+
+        }
+
         public void createridekecidd(object p)
         {
 

@@ -142,15 +142,20 @@ namespace SCHOOL_BUS.ViewModels
         }
         private void remove(object obj)
         {
-
-            selected_car = obj as Car;
-            Database.GetBaza().Cars.Remove(selected_car);
-            cars.Clear();
-            (Database.GetBaza()).SaveChanges();
-            foreach (var item in (Database.GetBaza()).Cars.ToList())
+            Selected_car = obj as Car;
+            if ((Database.GetBaza()).Drivers.First(n=>n.Id==Selected_car.DriverId)!=null) MaterialMessageBox.ShowError(@"You can't delete, because the same machine uses the driver !!!!!!");
+            else
             {
-                cars.Add(item);
-            }
+                        
+                        Database.GetBaza().Cars.Remove(Selected_car);
+                        cars.Clear();
+                        (Database.GetBaza()).SaveChanges();
+                        foreach (var item in (Database.GetBaza()).Cars.ToList())
+                        {
+                            cars.Add(item);
+                        }
+             }
+          
         }
         private void update(object obj)
         {

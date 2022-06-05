@@ -33,6 +33,53 @@
       Orientation="Vertical"
       TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
       Margin="8,24,16,24">
+                <StackPanel
+  Orientation="Vertical"
+  Margin="4">
+                    <RadioButton  Command="{Binding createriderelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="True"
+    Content="Create Rides" />
+                    <RadioButton Command="{Binding riderelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Rides" />
+                    <RadioButton Command="{Binding classrelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Class" />
+                    <RadioButton Command="{Binding  studentrelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Student" />
+                    <RadioButton Command="{Binding parentrelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Parent" />
+                    <RadioButton Command="{Binding driverrelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Driver" />
+                    <RadioButton Command="{Binding carrelay}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Car" />
+                    <RadioButton Command="{Binding Holidays}" Height="60"
+    Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
+    Margin="4"
+    IsChecked="False"
+    Content="Holidays" />
+                </StackPanel>
+            </StackPanel>
+        </Expander>
+        <!--</StackPanel>
                 <Button Height="300" HorizontalAlignment="Stretch"
   Style="{StaticResource MaterialDesignOutlinedButton}"
   ToolTip="MaterialDesignOutlinedButton"
@@ -58,10 +105,10 @@
                     </Grid>
                 </Border>
 
-                <Border CornerRadius="10"  BorderThickness="15"   >
+                <Border CornerRadius="10"  BorderThickness="15"    >
                     <Grid
  >
-                        <Button  Background="{DynamicResource esascolor}"
+                        <Button  Background="{DynamicResource esascolor}"  Command="{Binding riderelay}"
     Style="{StaticResource MaterialDesignRaisedButton}"
 
     materialDesign:ButtonAssist.CornerRadius="10"
@@ -161,9 +208,9 @@
   
   ToolTip="MaterialDesignSwitchDarkToggleButton"
   IsChecked="{Binding Tooglechange}"  Command="{Binding toggledark}"   />
-                </Border>
-            </StackPanel>
-        </Expander>
+                </Border>-->
+            <!--</StackPanel>-->
+     
 
 
         <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}"></Frame>
