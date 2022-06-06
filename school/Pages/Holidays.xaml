@@ -42,7 +42,7 @@
             </Style>
         </Grid.Resources>
         <Viewbox>
-            <Calendar  
+            <Calendar  SelectedDate="{Binding Dates,UpdateSourceTrigger=PropertyChanged}"
     Background="{DynamicResource PrimaryHueLightBrush}"
     Foreground="{DynamicResource PrimaryHueLightForegroundBrush}"
     materialDesign:CalendarAssist.HeaderBackground="{DynamicResource PrimaryHueDarkBrush}"

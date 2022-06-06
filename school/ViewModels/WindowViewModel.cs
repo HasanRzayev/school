@@ -80,14 +80,20 @@ namespace SCHOOL_BUS.ViewModels
             //(Database.GetBaza()).Cars.Add(CarAUDI);
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
             //var faker = new Faker("az");
-            //for (int i = 0; i < 20; i++)
+            //for (int i = 0; i < 5; i++)
             //{
-            //    (Database.GetBaza()).Parents.Add(new Parent { FirstName=faker.Name.FirstName(),
-            //    LastName=faker.Name.LastName(),Phone=faker.Phone.PhoneNumber(),UserName=faker.Name.FullName(),Password="1234",});
+            //    (Database.GetBaza()).Parents.Add(new Parent
+            //    {
+            //        FirstName=faker.Name.FirstName(),
+            //        LastName=faker.Name.LastName(),
+            //        Phone=faker.Phone.PhoneNumber(),
+            //        UserName=faker.Name.FullName(),
+            //        Password="1234",
+            //    });
             //}
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
-            
+
             //int norma = 100;
             //for (int i = 0; i < 10; i++)
             //{
@@ -98,10 +104,10 @@ namespace SCHOOL_BUS.ViewModels
             //    });
             //    norma++;
             //}
-           
-            
+            (Database.GetBaza()).Holidays.Add(new Holiday { Date= new DateTime(2022, 6, 8) });
 
-            (Database.GetBaza()).SaveChanges(); 
+
+          (Database.GetBaza()).SaveChanges(); 
 
 
 

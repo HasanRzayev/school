@@ -156,8 +156,7 @@ namespace school.ViewModels
             LastName = LAZIMLICAR.LastName;
             HomeAdress=LAZIMLICAR.Home;
 
-            parents.Add(LAZIMLICAR.Parent.FirstName);
-            classes.Add(LAZIMLICAR.Group.Title);
+      
 
             Selected_Parent=LAZIMLICAR.Parent.FirstName;
             Selected_class=LAZIMLICAR.Group.Title;
@@ -183,8 +182,7 @@ namespace school.ViewModels
             var copyclass = (Database.GetBaza()).Groups.FirstOrDefault(n => n.Title==Selected_class);
             if (ButtonText=="Update")
             {
-                parents.Remove(copyparent.FirstName);
-                classes.Remove(copyclass.Title);
+               
             }
                 Popupisopen=false;
 
@@ -195,8 +193,7 @@ namespace school.ViewModels
          
          
          
-            parents.Add(Selected_Student.Parent.FirstName);
-            classes.Add(Selected_Student.Group.Title);
+ 
             Database.GetBaza().Students.Remove(Selected_Student);
             students.Clear();
             (Database.GetBaza()).SaveChanges();
@@ -246,8 +243,7 @@ namespace school.ViewModels
                     (Database.GetBaza()).Update(Database.GetBaza().Students.FirstOrDefault(d => d.FirstName == this.FirstName));
                     (Database.GetBaza()).SaveChanges();
 
-                    parents.Remove(copyparent.FirstName);
-                    classes.Remove(copyclass.Title);
+
                     students.Clear();
 
                     foreach (var item in (Database.GetBaza()).Students)
@@ -273,8 +269,7 @@ namespace school.ViewModels
                 {
 
                     Student student = (Database.GetBaza()).Students.FirstOrDefault(car => car == Selected_Student);
-                    parents.Remove(copyparent.FirstName);
-                    classes.Remove(copyclass.Title);
+                   
                     student.FirstName = this.FirstName;
                     student.LastName = this.LastName;
                     student.Home=this.HomeAdress;

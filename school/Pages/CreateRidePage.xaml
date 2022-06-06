@@ -140,7 +140,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                            <materialDesign:PackIcon Kind="Add" />
+                                            <materialDesign:PackIcon Kind="Minus" />
                                         </Button>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>

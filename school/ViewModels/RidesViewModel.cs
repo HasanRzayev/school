@@ -60,10 +60,17 @@ namespace school.ViewModels
         private void remove(object obj)
         {
             Selected_ride = obj as Ride;
-           
+
+            foreach (var item in (Database.GetBaza()).Students)
+            {
+                if (item.RideId==Selected_ride.Id)
+                {
+                    item.RideId=null;
+                }
+            }
             Database.GetBaza().Rides.Remove(Selected_ride);
             rides.Clear();
-
+           
             (Database.GetBaza()).SaveChanges();
             foreach (var item in (Database.GetBaza()).Rides.ToList())
             {

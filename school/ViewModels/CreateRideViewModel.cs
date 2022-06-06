@@ -125,15 +125,23 @@ namespace school.ViewModels
         }
         public void add(object p)
         {
-            if(students_drivers.Count+1>students_drivers.Count) MaterialMessageBox.ShowError(@"FULL  !!!!!!");
-            else
-                    {
-                        Selected_Student = p as Student;
-                        students_drivers.Add(Selected_Student);
-                        allstudents.Remove(Selected_Student);
+            if (Selected_Driver!=null)
+            {
+                var driver = (Database.GetBaza()).Drivers.FirstOrDefault(n => n.FirstName==Selected_Driver);
+                var car = (Database.GetBaza()).Cars.FirstOrDefault(n => n.DriverId==driver.Id);
+                Selected_Student = p as Student;
+                if (students_drivers.Count()+1>car.SeatCount) MaterialMessageBox.ShowError(@"FULL  !!!!!!");
+                else
+                {
 
-                        Attend=(int.Parse(Attend)+1).ToString();
-                    }
+
+                    students_drivers.Add(Selected_Student);
+                    allstudents.Remove(Selected_Student);
+
+                    Attend=(int.Parse(Attend)+1).ToString();
+                }
+            }
+          
             
 
 
@@ -146,16 +154,26 @@ namespace school.ViewModels
             var driver = (Database.GetBaza()).Drivers.First(n => n.FirstName==Selected_Driver);
             var ride = new Ride { Type="go",Driver=driver,DriverId=driver.Id};
             if (Database.GetBaza().Rides.FirstOrDefault(d => d.DriverId ==driver.Id)!=null)
-            {
-                MaterialMessageBox.ShowError(@"Enter FirstName !!!!!!");
+            { 
+               
             }
             else
             {
                 (Database.GetBaza()).SaveChanges();
 
                 (Database.GetBaza()).Add(ride);
+                //foreach (var item in (Database.GetBaza()).Students)
+                //{
+
+                //    item.RideId=ride.Id;
+                //}
 
 
+                //foreach (var item in students_drivers)
+                //{
+                   
+                //   (Database.GetBaza()).Students.Add(item);
+                //}
 
 
                 ride.Driver= driver;

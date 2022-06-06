@@ -7,5 +7,10 @@
         public int SeatCount { get; set; }
         public Driver Driver { get; set; }
         public int? DriverId { get; set; }
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }

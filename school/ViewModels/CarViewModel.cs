@@ -143,7 +143,7 @@ namespace SCHOOL_BUS.ViewModels
         private void remove(object obj)
         {
             Selected_car = obj as Car;
-            if ((Database.GetBaza()).Drivers.First(n=>n.Id==Selected_car.DriverId)!=null) MaterialMessageBox.ShowError(@"You can't delete, because the same machine uses the driver !!!!!!");
+            if (Selected_car.DriverId!=null) MaterialMessageBox.ShowError(@"You can't delete, because the same machine uses the driver !!!!!!");
             else
             {
                         

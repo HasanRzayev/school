@@ -98,15 +98,22 @@ namespace school.ViewModels
         private void remove(object obj)
         {
             selected_class = obj as Group;
-            if ((Database.GetBaza()).Students.First(n => n.GroupId==Selected_class.Id)!=null) MaterialMessageBox.ShowError(@"
-You can't delete, because he is studying in the same class !!!!!!");
-            Database.GetBaza().Groups.Remove(Selected_class);
-            classs.Clear();
-
-            (Database.GetBaza()).SaveChanges();
-            foreach (var item in (Database.GetBaza()).Groups.ToList())
+            if ((Database.GetBaza()).Students.Count()!=0)
             {
-                classs.Add(item);
+                if ((Database.GetBaza()).Students.First(n => n.GroupId==Selected_class.Id)!=null) MaterialMessageBox.ShowError(@"
+You can't delete, because he is studying in the same class !!!!!!");
+            }
+            else
+            {
+                Database.GetBaza().Groups.Remove(Selected_class);
+                classs.Clear();
+
+                (Database.GetBaza()).SaveChanges();
+                foreach (var item in (Database.GetBaza()).Groups.ToList())
+                {
+                    classs.Add(item);
+                }
+
             }
 
         }

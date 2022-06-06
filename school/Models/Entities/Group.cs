@@ -6,5 +6,12 @@ namespace Sb.Models.Entities
     {
         public string Title { get; set; }
         public virtual List<Student> Students { get; set; }
+
+
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }

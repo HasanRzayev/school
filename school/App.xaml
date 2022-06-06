@@ -12,10 +12,12 @@
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary>
-                    <SolidColorBrush x:Key="esascolor">#FFA500</SolidColorBrush>
-                    <SolidColorBrush x:Key="esascolorcopy">#FFA500</SolidColorBrush>
-                    <SolidColorBrush x:Key="ikincireng">#FFCA03</SolidColorBrush>
-                    <SolidColorBrush x:Key="ikincirengcopy">#FFCA03</SolidColorBrush>
+                    <SolidColorBrush x:Key="esascolor">#fdd835</SolidColorBrush>
+                    <SolidColorBrush x:Key="esascolorcopy">#fdd835</SolidColorBrush>
+                    <SolidColorBrush x:Key="ikincireng">#d19920</SolidColorBrush>
+                    <SolidColorBrush x:Key="ikincirengcopy">#d19920</SolidColorBrush>
+                    <SolidColorBrush x:Key="ucuncureng">#29142c</SolidColorBrush>
+                    <SolidColorBrush x:Key="ucuncurengcopy">#29142c</SolidColorBrush>
 
                     <SolidColorBrush x:Key="writecolor">#000000</SolidColorBrush>
                     <SolidColorBrush x:Key="writecolorcopy">#000000</SolidColorBrush>
