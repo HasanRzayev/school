@@ -4,15 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:school"
-          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:fa="http://schemas.fontawesome.io/icons/"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
      Background="{ DynamicResource ikincireng}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-      
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1000">
     <StackPanel Orientation="Horizontal">
@@ -87,18 +89,37 @@
                 </Border>
             </StackPanel>
         </Expander>
-     
-              
-     
+        <StackPanel Orientation="Vertical" Width="950">
+            <Button Height="80"
+                Width="80"
+                HorizontalAlignment="Right"
+                
+               Click="Button_Click"
+               
+               Background="Transparent"
+              >
+                <materialDesign:PackIcon Kind="Power" Height="80" Width="40" />
+            </Button>
 
 
-      
-        <Frame Width="950" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}"></Frame>
 
+
+
+
+            <Frame Panel.ZIndex="1" Width="850" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}" Visibility="{Binding open,UpdateSourceTrigger=PropertyChanged}">
+
+            </Frame>
+
+            <Popup   IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}"  Placement="Center" Width="100" Height="100" >
+                <StackPanel Background="#FFFFFF">
+                    <fa:ImageAwesome Icon="Cog" Spin="True" SpinDuration="10" />
+
+                </StackPanel>
+
+            </Popup>
+          
+        </StackPanel>
        
-
-       
-
     </StackPanel>
 
 </Window>

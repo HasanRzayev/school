@@ -11,7 +11,7 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-     Background="{ DynamicResource ikincireng}"
+     Background="{ DynamicResource esascolor}"
      FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="450" d:DesignWidth="1100"
       Title="DriverPage">

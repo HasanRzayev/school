@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using Sb.Models.Entities;
+using school;
 using school.Pages;
 using school.ViewModels;
 using SCHOOL_BUS.Commands;
@@ -12,6 +13,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -35,6 +37,7 @@ namespace SCHOOL_BUS.ViewModels
         public StudentViewModel studentviewmodel  { get; set; }
         public CreateRideViewModel createrideviewmodel  { get; set; }
         public RidesViewModel rideviewmodel  { get; set; }
+        public loadingviewModel loadviewmodel  { get; set; }
 
 
 
@@ -46,9 +49,20 @@ namespace SCHOOL_BUS.ViewModels
         public RelayCommand studentrelay { get; set; }
         public RelayCommand createriderelay { get; set; }
         public RelayCommand riderelay { get; set; }
+        public RelayCommand CloseAppCommand { get; set; }
 
 
+        private bool popupisopen;
 
+        public bool Popupisopen
+        {
+            get { return popupisopen; }
+            set
+            {
+                popupisopen = value;
+                OnPropertyChanged();
+            }
+        }
         public RelayCommand toggledark { get; set; }
         private bool togglechange;
 
@@ -68,6 +82,7 @@ namespace SCHOOL_BUS.ViewModels
             studentrelay= new RelayCommand(studentkecidd);
             createriderelay= new RelayCommand(createridekecidd);
             riderelay= new RelayCommand(ridekecidd);
+            CloseAppCommand= new RelayCommand(CloseApp);
             toggledark= new RelayCommand(toggle);
             ////////////////////////////////////////////////////////////////////////////////////////////////////////
             //var Carmercedes = new Car { Title="Mercedes", Number="10-DA-123", SeatCount=4 };
@@ -78,7 +93,7 @@ namespace SCHOOL_BUS.ViewModels
             //(Database.GetBaza()).Cars.Add(CarHyunday);
             //(Database.GetBaza()).Cars.Add(CarBmw);
             //(Database.GetBaza()).Cars.Add(CarAUDI);
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
             //var faker = new Faker("az");
             //for (int i = 0; i < 5; i++)
             //{
@@ -92,7 +107,7 @@ namespace SCHOOL_BUS.ViewModels
             //    });
             //}
 
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             //int norma = 100;
             //for (int i = 0; i < 10; i++)
@@ -104,7 +119,7 @@ namespace SCHOOL_BUS.ViewModels
             //    });
             //    norma++;
             //}
-            (Database.GetBaza()).Holidays.Add(new Holiday { Date= new DateTime(2022, 6, 8) });
+            //(Database.GetBaza()).Holidays.Add(new Holiday { Date= new DateTime(2022, 6, 8) });
 
 
           (Database.GetBaza()).SaveChanges(); 
@@ -149,6 +164,14 @@ namespace SCHOOL_BUS.ViewModels
                 Application.Current.Resources["ikincireng"] =  Application.Current.Resources["ikincirengcopy"];
                 Application.Current.Resources["writecolordark"] =  Application.Current.Resources["writecolorcopy"];
             }
+        }
+
+        public void loadkecid(object p)
+        {
+            loadviewmodel= new loadingviewModel();
+            LoadingPage lazim = new LoadingPage();
+            lazim.DataContext = loadviewmodel;
+            DisplayPage = lazim;
         }
         public void  ridekecidd(object p)
         {
@@ -196,10 +219,12 @@ namespace SCHOOL_BUS.ViewModels
             DisplayPage = lazim;
 
         }
-        public void Carkecid(object p)
+        public async void Carkecid(object p)
         {
-
-            carviewmoedel= new CarViewModel();
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
+            carviewmoedel = new CarViewModel();
             Carpage lazim = new Carpage();
             lazim.DataContext = carviewmoedel;
             DisplayPage = lazim;
@@ -223,6 +248,12 @@ namespace SCHOOL_BUS.ViewModels
             lazim.DataContext = parentviewmodel;
             DisplayPage = lazim;
 
+        }
+
+        public void CloseApp(object obj)
+        {
+            MainWindow win = obj as MainWindow;
+            win.Close();
         }
     }
 }

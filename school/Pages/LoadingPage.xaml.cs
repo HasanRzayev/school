@@ -1,6 +1,4 @@
-﻿
-using SCHOOL_BUS.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,24 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace school
+namespace school.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LoadingPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoadingPage : Page
     {
-        
-        public MainWindow()
+        public LoadingPage()
         {
             InitializeComponent();
-            DataContext=new WindowViewModel();
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

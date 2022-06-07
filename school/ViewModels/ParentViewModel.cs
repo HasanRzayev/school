@@ -154,8 +154,19 @@ namespace school.ViewModels
             Selected_parent = obj as Parent;
             if ((Database.GetBaza()).Students.Count()!=0)
             {
-                if ((Database.GetBaza()).Students.First(n => n.ParentId==Selected_parent.Id)!=null) MaterialMessageBox.ShowError(@"
+               
+                if ((Database.GetBaza()).Students.FirstOrDefault(n => n.ParentId==Selected_parent.Id)!=null) MaterialMessageBox.ShowError(@"
 You can't delete, because he is studying in the same class !!!!!!");
+                else
+                {
+                    Database.GetBaza().Parents.Remove(Selected_parent);
+                    parents.Clear();
+                    (Database.GetBaza()).SaveChanges();
+                    foreach (var item in (Database.GetBaza()).Parents.ToList())
+                    {
+                        parents.Add(item);
+                    }
+                }
             }
          
             else
