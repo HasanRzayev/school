@@ -15,10 +15,10 @@ namespace Sb.Data
         public DbSet<Group> Groups { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
 
-
+       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source = WIN-EA8010O87DM;Initial Catalog=SbDb;Integrated Security = True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            optionsBuilder.UseSqlServer(" Data Source = STHQ0125-06;;Initial Catalog=SbDb;User ID = admin; Password=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -23,7 +23,7 @@
     ExpandDirection="Left">
             <Expander.Header>
                 <TextBlock
-        Text="MENU"
+        Text="MENU"  Foreground="#FFFFFF"
         RenderTransformOrigin=".5,.5">
                     <TextBlock.LayoutTransform>
                         <RotateTransform
@@ -73,7 +73,7 @@
     Margin="4"
     IsChecked="False"
     Content="Car" />
-                    <RadioButton Command="{Binding Holidays}" Height="60"
+                    <RadioButton Command="{Binding Holidays}" Height="60"  
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}" Foreground="	#ffffff"
     Margin="4"
     IsChecked="False"
@@ -81,12 +81,12 @@
              
     
                 </StackPanel>
-                <Border CornerRadius="10"  BorderThickness="15" >
+                <!--<Border CornerRadius="10"  BorderThickness="15" >
                     <ToggleButton
   
   ToolTip="MaterialDesignSwitchDarkToggleButton"
   IsChecked="{Binding Tooglechange}"  Command="{Binding toggledark}"   />
-                </Border>
+                </Border>-->
             </StackPanel>
         </Expander>
         <StackPanel Orientation="Vertical" Width="950">
@@ -106,13 +106,13 @@
 
 
 
-            <Frame Panel.ZIndex="1" Width="850" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}" Visibility="{Binding open,UpdateSourceTrigger=PropertyChanged}">
+            <Frame   Panel.ZIndex="1" Width="850" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}" Visibility="{Binding open,UpdateSourceTrigger=PropertyChanged}">
 
             </Frame>
 
-            <Popup   IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}"  Placement="Center" Width="100" Height="100" >
-                <StackPanel Background="#FFFFFF">
-                    <fa:ImageAwesome Icon="Cog" Spin="True" SpinDuration="10" />
+            <Popup   IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}"  Placement="Center" Width="100" Height="100"  >
+                <StackPanel Background="#37323e">
+                    <fa:ImageAwesome Icon="Cog" Spin="True" SpinDuration="10" Foreground="{DynamicResource esascolor}" />
 
                 </StackPanel>
 

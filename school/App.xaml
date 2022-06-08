@@ -12,11 +12,11 @@
             <ResourceDictionary.MergedDictionaries>
 
                 <ResourceDictionary>
-                    <SolidColorBrush x:Key="esascolor">#fdd835</SolidColorBrush>
+                    <SolidColorBrush x:Key="esascolor">#deb841</SolidColorBrush>
                     <SolidColorBrush x:Key="esascolorcopy">#fdd835</SolidColorBrush>
-                    <SolidColorBrush x:Key="ikincireng">#d19920</SolidColorBrush>
+                    <SolidColorBrush x:Key="ikincireng">#de9e36</SolidColorBrush>
                     <SolidColorBrush x:Key="ikincirengcopy">#d19920</SolidColorBrush>
-                    <SolidColorBrush x:Key="ucuncureng">#29142c</SolidColorBrush>
+                    <SolidColorBrush x:Key="ucuncureng">#37323e</SolidColorBrush>
                     <SolidColorBrush x:Key="ucuncurengcopy">#29142c</SolidColorBrush>
 
                     <SolidColorBrush x:Key="writecolor">#000000</SolidColorBrush>
@@ -31,7 +31,10 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
 
+                <ResourceDictionary>
 
+
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

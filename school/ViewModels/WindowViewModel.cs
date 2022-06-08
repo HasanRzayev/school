@@ -166,16 +166,21 @@ namespace SCHOOL_BUS.ViewModels
             }
         }
 
-        public void loadkecid(object p)
+        public async void loadkecid(object p)
         {
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             loadviewmodel= new loadingviewModel();
             LoadingPage lazim = new LoadingPage();
             lazim.DataContext = loadviewmodel;
             DisplayPage = lazim;
-        }
-        public void  ridekecidd(object p)
+        }     
+        public async void  ridekecidd(object p)
         {
-
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             rideviewmodel= new RidesViewModel();
             RidesPage lazim = new RidesPage();
             lazim.DataContext = rideviewmodel;
@@ -183,36 +188,44 @@ namespace SCHOOL_BUS.ViewModels
 
         }
 
-        public void createridekecidd(object p)
+        public async void createridekecidd(object p)
         {
-
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             createrideviewmodel= new CreateRideViewModel();
             CreateRidePage lazim = new CreateRidePage();
             lazim.DataContext = createrideviewmodel;
             DisplayPage = lazim;
 
         }
-        public void studentkecidd(object p)
+        public async void studentkecidd(object p)
         {
-
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             studentviewmodel= new StudentViewModel();
             StudentPage lazim = new StudentPage();
             lazim.DataContext = studentviewmodel;
             DisplayPage = lazim;
 
         }
-        public void classkecidd(object p)
+        public async void classkecidd(object p)
         {
-
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             classviewmodel= new ClassViewModel();
             ClassPage lazim = new ClassPage();
             lazim.DataContext = classviewmodel;
             DisplayPage = lazim;
 
         }
-        public void Holidaykecidd(object p)
+        public async void Holidaykecidd(object p)
         {
-           
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             holidays= new HolidaysViewModel();
             Holidays lazim = new Holidays();
             lazim.DataContext = holidays;
@@ -230,9 +243,11 @@ namespace SCHOOL_BUS.ViewModels
             DisplayPage = lazim;
 
         }
-        public void Driverkecid(object p)
+        public async void Driverkecid(object p)
         {
-
+            Popupisopen=true;
+            await Task.Delay(2000);
+            Popupisopen=false;
             driverviewmoedel= new DriverViewModel();
             DriverPage lazim = new DriverPage();
             lazim.DataContext = driverviewmoedel;
