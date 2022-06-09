@@ -108,7 +108,7 @@
                 </ComboBox>
             </Border>
                 <Border CornerRadius="10"  BorderThickness="15"  >
-                <Button  Content="Create" Width="200"  Height="50" HorizontalAlignment="Left"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
+                <Button  Content="Create" Width="200"  Height="50"  Foreground="{DynamicResource darkmode_1}"  HorizontalAlignment="Left"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
             </Border>
 
         </StackPanel>

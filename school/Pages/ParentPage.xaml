@@ -36,7 +36,7 @@
     ToolTip="MaterialDesignRaisedButton with Round Corners"
                             
    >
-                        <materialDesign:PackIcon Kind="Plus" />
+                        <materialDesign:PackIcon Kind="Plus"   Foreground="{DynamicResource darkmode_1}" />
                     </Button>
                 </Grid>
             </Border>
@@ -62,9 +62,9 @@
               DisplayMemberBinding="{Binding UserName}" />
                         <GridViewColumn Width="110" Header="Phone" 
               DisplayMemberBinding="{Binding Phone}" />
-                      
-                        
-                        <GridViewColumn Width="150" Header=" Delete Action">
+
+
+                        <GridViewColumn Width="150" Header=" Delete Action"   >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Button Background="{DynamicResource esascolor}"  Command="{Binding Path=DataContext.Remove, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ItemsControl}}}" CommandParameter="{Binding}" 
@@ -73,7 +73,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                        <materialDesign:PackIcon Kind="Delete" />
+                                        <materialDesign:PackIcon Kind="Delete"   Foreground="{DynamicResource darkmode_1}" />
                                     </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -87,7 +87,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                        <materialDesign:PackIcon Kind="Update" />
+                                        <materialDesign:PackIcon Kind="Update"  Foreground="{DynamicResource darkmode_1}"  />
 
                                     </Button>
                                 </DataTemplate>
@@ -200,7 +200,7 @@
                 </Border>
                 
                 <Border CornerRadius="10"  BorderThickness="15"  >
-                    <Button Content="Create" HorizontalAlignment="Right"  Command="{Binding Create}"  Background="{DynamicResource esascolor}"/>
+                    <Button Content="Create" HorizontalAlignment="Right"   Foreground="{DynamicResource darkmode_1}"  Command="{Binding Create}"  Background="{DynamicResource esascolor}"/>
                 </Border>
             </StackPanel>
         </Popup>

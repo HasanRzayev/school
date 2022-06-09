@@ -10,87 +10,105 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-     Background="{ DynamicResource ikincireng}"
-     FontFamily="{DynamicResource MaterialDesignFont}"
+  AllowsTransparency="True"
+        Background="Transparent"     FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1000">
-    <StackPanel Orientation="Horizontal">
+    <Border CornerRadius="52" BorderThickness="10" BorderBrush="White">
 
-        <Expander Grid.Column="0" Background="#0f0f33"
+        <Border CornerRadius="35" BorderThickness="20">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#679436" Offset="0.0"/>
+             
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+
+
+            <Grid>
+                <Grid.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#679436" Offset="0.0"/>
+                        
+                    </LinearGradientBrush>
+                </Grid.Background>
+                <StackPanel Orientation="Horizontal">
+
+                    <Expander Grid.Column="0" Background="{DynamicResource ikincireng}"
     ExpandDirection="Left">
-            <Expander.Header>
-                <TextBlock
-        Text="MENU"  Foreground="#FFFFFF"
+                        <Expander.Header>
+                            <TextBlock
+        Text="MENU"
         RenderTransformOrigin=".5,.5">
-                    <TextBlock.LayoutTransform>
-                        <RotateTransform
+                                <TextBlock.LayoutTransform>
+                                    <RotateTransform
             Angle="90" />
-                    </TextBlock.LayoutTransform>
-                </TextBlock>
-            </Expander.Header>
-            <StackPanel
+                                </TextBlock.LayoutTransform>
+                            </TextBlock>
+                        </Expander.Header>
+                        <StackPanel
       Orientation="Vertical"
       TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
       Margin="8,24,16,24">
-                <StackPanel
+                            <StackPanel
   Orientation="Vertical"
   Margin="4">
-                    <RadioButton  Command="{Binding createriderelay}" Height="60" Foreground="	#ffffff"
+                                <RadioButton  Command="{Binding createriderelay}" Height="60" Foreground="	#ffffff"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
     Margin="4"
     IsChecked="True"
     Content="Create Rides" />
-                    <RadioButton Command="{Binding riderelay}" Height="60" Foreground="	#ffffff"
+                                <RadioButton Command="{Binding riderelay}" Height="60" Foreground="	#ffffff"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
     Margin="4"
     IsChecked="False"
     Content="Rides" />
-                    <RadioButton Command="{Binding classrelay}" Height="60" Foreground="	#ffffff"
+                                <RadioButton Command="{Binding classrelay}" Height="60" Foreground="	#ffffff"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
     Margin="4"
     IsChecked="False"
     Content="Class" />
-                    <RadioButton Command="{Binding  studentrelay}" Height="60"  Foreground="	#ffffff"
+                                <RadioButton Command="{Binding  studentrelay}" Height="60"  Foreground="	#ffffff"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
     Margin="4"
     IsChecked="False"
     Content="Student" />
-                    <RadioButton Command="{Binding parentrelay}" Height="60" Foreground="	#ffffff"
+                                <RadioButton Command="{Binding parentrelay}" Height="60" Foreground="	#ffffff"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
     Margin="4"
     IsChecked="False"
     Content="Parent" />
-                    <RadioButton Command="{Binding driverrelay}" Height="60"
+                                <RadioButton Command="{Binding driverrelay}" Height="60"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}" Foreground="	#ffffff"
     Margin="4"
     IsChecked="False"
     Content="Driver" />
-                    <RadioButton Command="{Binding carrelay}" Height="60" Foreground="	#ffffff"
+                                <RadioButton Command="{Binding carrelay}" Height="60" Foreground="	#ffffff"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}"
     Margin="4"
     IsChecked="False"
     Content="Car" />
-                    <RadioButton Command="{Binding Holidays}" Height="60"  
+                                <RadioButton Command="{Binding Holidays}" Height="60"
     Style="{StaticResource MaterialDesignTabRadioButtonLeft}" Foreground="	#ffffff"
     Margin="4"
     IsChecked="False"
     Content="Holidays" />
-             
-    
-                </StackPanel>
-                <!--<Border CornerRadius="10"  BorderThickness="15" >
-                    <ToggleButton
+
+
+                            </StackPanel>
+                            <Border CornerRadius="10"  BorderThickness="15" >
+                                <ToggleButton
   
   ToolTip="MaterialDesignSwitchDarkToggleButton"
   IsChecked="{Binding Tooglechange}"  Command="{Binding toggledark}"   />
-                </Border>-->
-            </StackPanel>
-        </Expander>
-        <StackPanel Orientation="Vertical" Width="950">
-            <Button Height="80"
+                            </Border>
+                        </StackPanel>
+                    </Expander>
+                    <StackPanel Orientation="Vertical" Width="890">
+                        <Button Height="80"
                 Width="80"
                 HorizontalAlignment="Right"
                 
@@ -98,28 +116,30 @@
                
                Background="Transparent"
               >
-                <materialDesign:PackIcon Kind="Power" Height="80" Width="40" />
-            </Button>
+                            <materialDesign:PackIcon Kind="Power" Height="80" Width="40" />
+                        </Button>
 
 
 
 
 
 
-            <Frame   Panel.ZIndex="1" Width="850" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}" Visibility="{Binding open,UpdateSourceTrigger=PropertyChanged}">
+                        <Frame Panel.ZIndex="1" Width="850" NavigationUIVisibility="Hidden" Background="{DynamicResource esascolor}" Content="{Binding Path=DisplayPage, Mode=TwoWay}" Visibility="{Binding open,UpdateSourceTrigger=PropertyChanged}">
 
-            </Frame>
+                        </Frame>
 
-            <Popup   IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}"  Placement="Center" Width="100" Height="100"  >
-                <StackPanel Background="#37323e">
-                    <fa:ImageAwesome Icon="Cog" Spin="True" SpinDuration="10" Foreground="{DynamicResource esascolor}" />
+                        <Popup   IsOpen="{Binding Popupisopen,UpdateSourceTrigger=PropertyChanged}"  Placement="Center" Width="100" Height="100" >
+                            <StackPanel Background="#FFFFFF">
+                                <fa:ImageAwesome Icon="Cog" Spin="True" SpinDuration="10" />
+
+                            </StackPanel>
+
+                        </Popup>
+
+                    </StackPanel>
 
                 </StackPanel>
-
-            </Popup>
-          
-        </StackPanel>
-       
-    </StackPanel>
-
+            </Grid>
+        </Border>
+    </Border>
 </Window>

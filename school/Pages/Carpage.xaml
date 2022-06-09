@@ -29,14 +29,14 @@
             <Border Grid.Column="0" CornerRadius="10"  BorderThickness="15"   >
                 <Grid
  >
-                    <Button  Command="{Binding Add}"  Background="{DynamicResource esascolor}"
+                    <Button  Command="{Binding Add}"  Background="{DynamicResource esascolor}" 
     Style="{StaticResource MaterialDesignRaisedButton}"
     Width="60" Height="60"
     materialDesign:ButtonAssist.CornerRadius="10"
     ToolTip="MaterialDesignRaisedButton with Round Corners"
                             
    >
-                        <materialDesign:PackIcon Kind="Plus" />
+                        <materialDesign:PackIcon Kind="Plus" Foreground="{DynamicResource darkmode_1}" Height="40" Width="40" HorizontalAlignment="Center" />
                     </Button>
                 </Grid>
             </Border>
@@ -68,7 +68,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                        <materialDesign:PackIcon Kind="Delete" />
+                                        <materialDesign:PackIcon Kind="Delete"  Foreground="{DynamicResource darkmode_1}"/>
                                     </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -82,7 +82,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                        <materialDesign:PackIcon Kind="Update" />
+                                        <materialDesign:PackIcon Kind="Update" Foreground="{DynamicResource darkmode_1}" />
                                     </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -90,7 +90,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button HorizontalAlignment="Right" Margin="5,5,5,5"  Background="{DynamicResource esascolor}"
+            <Button HorizontalAlignment="Right" Margin="5,5,5,5"  Background="{DynamicResource esascolor}" 
         Content="Add Row"  />
         </StackPanel>
 
@@ -98,7 +98,7 @@
             <StackPanel Background="{DynamicResource ikincireng}">
                 <Border CornerRadius="10"  BorderThickness="15" >
                     <Button Width="60" Height="30" HorizontalAlignment="Right" Command="{Binding Exit}"  Background="{DynamicResource esascolor}" >
-                        <materialDesign:PackIcon Kind="CloseCircle" />
+                        <materialDesign:PackIcon Kind="CloseCircle"  Foreground="{DynamicResource darkmode_1}" />
                     </Button>
                 </Border>
                 <Border CornerRadius="10"  BorderThickness="15" >
@@ -154,7 +154,7 @@
                     </TextBox>
                 </Border>
                 <Border CornerRadius="10"  BorderThickness="15"   >
-                    <Button Content="{Binding ButtonText}" HorizontalAlignment="Right"  Command="{Binding Create}"  Background="{DynamicResource esascolor}"/>
+                    <Button Content="{Binding ButtonText}" HorizontalAlignment="Right"  Command="{Binding Create}"  Foreground="{DynamicResource darkmode_1}" Background="{DynamicResource esascolor}"/>
                 </Border>
             </StackPanel>
         </Popup>

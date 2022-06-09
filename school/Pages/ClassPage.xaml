@@ -36,7 +36,7 @@
     ToolTip="MaterialDesignRaisedButton with Round Corners"
                             
    >
-                        <materialDesign:PackIcon Kind="Plus" />
+                        <materialDesign:PackIcon Kind="Plus"   Foreground="{DynamicResource darkmode_1}"/>
                     </Button>
                 </Grid>
             </Border>
@@ -64,7 +64,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                        <materialDesign:PackIcon Kind="Delete" />
+                                        <materialDesign:PackIcon Kind="Delete"   Foreground="{DynamicResource darkmode_1}"/>
                                     </Button>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -78,7 +78,7 @@
                        VerticalAlignment="Center"
                                         
                         >
-                                        <materialDesign:PackIcon Kind="Update" />
+                                        <materialDesign:PackIcon Kind="Update"   Foreground="{DynamicResource darkmode_1}"/>
 
                                     </Button>
                                 </DataTemplate>
@@ -119,7 +119,7 @@
                 </Border>
                 
                 <Border CornerRadius="10"  BorderThickness="15"  >
-                    <Button Content="{Binding  ButtonText,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Right"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
+                    <Button Content="{Binding  ButtonText,UpdateSourceTrigger=PropertyChanged}"   Foreground="{DynamicResource darkmode_1}" HorizontalAlignment="Right"  Command="{Binding Create}"   Background="{DynamicResource esascolor}"/>
                 </Border>
             </StackPanel>
         </Popup>
