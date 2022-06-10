@@ -25,7 +25,7 @@
                 <ListView.View >
                     <GridView >
                         <GridViewColumn Width="440" Header="Title" 
-              DisplayMemberBinding="{Binding Driver.FirstName}"  />
+              DisplayMemberBinding="{Binding FirstName}"  />
                       
                     <GridViewColumn Width="150" Header=" Start Action" >
                         <GridViewColumn.CellTemplate>
