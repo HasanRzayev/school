@@ -13,7 +13,7 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{ DynamicResource esascolor}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="800"
       Title="Carpage">
 
 
@@ -21,11 +21,11 @@
        
           
         <StackPanel Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True">
-        <ListView HorizontalContentAlignment="Center" Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_ride}"  ItemsSource="{Binding rides,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="800">
+        <ListView HorizontalContentAlignment="Center" Foreground="{DynamicResource writecolor}" SelectedItem="{Binding Selected_ride}"  ItemsSource="{Binding rides,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Height="400">
                 <ListView.View >
                     <GridView >
                         <GridViewColumn Width="440" Header="Title" 
-              DisplayMemberBinding="{Binding FirstName}"  />
+              DisplayMemberBinding="{Binding Driver.FirstName}"  />
                       
                     <GridViewColumn Width="150" Header=" Start Action" >
                         <GridViewColumn.CellTemplate>

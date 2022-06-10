@@ -37,7 +37,6 @@ namespace SCHOOL_BUS.ViewModels
         public StudentViewModel studentviewmodel  { get; set; }
         public CreateRideViewModel createrideviewmodel  { get; set; }
         public RidesViewModel rideviewmodel  { get; set; }
-        public loadingviewModel loadviewmodel  { get; set; }
 
 
 
@@ -166,16 +165,7 @@ namespace SCHOOL_BUS.ViewModels
             }
         }
 
-        public async void loadkecid(object p)
-        {
-            Popupisopen=true;
-            await Task.Delay(2000);
-            Popupisopen=false;
-            loadviewmodel= new loadingviewModel();
-            LoadingPage lazim = new LoadingPage();
-            lazim.DataContext = loadviewmodel;
-            DisplayPage = lazim;
-        }     
+      
         public async void  ridekecidd(object p)
         {
             Popupisopen=true;
